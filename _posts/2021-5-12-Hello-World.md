@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Recommendations of text-based content with Latent Dirichlet allocation and Jensen–Shannon divergence
+title: Recommending text-based content with Latent Dirichlet allocation and Jensen–Shannon divergence
 ---
 
 So, you've decided you want to build a recommendation system where the item you want to recommend is a text-based document of some sort. This could be an article, a peer-reviewed journal entry, a series of blog posts, or perhaps an event-description or similar. 
