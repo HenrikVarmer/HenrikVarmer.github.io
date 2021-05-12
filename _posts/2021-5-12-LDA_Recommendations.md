@@ -38,7 +38,7 @@ The logic is then: A user has clicked on document ID132. Do a lookup in your div
 ## Code
 I've written my own implementation of the concept described above in R, [here.](https://github.com/HenrikVarmer/textRec) 
 
-textRec utlizes Latent Dirichlet Allocation and Jensen-Shannon-Divergence on the discrete probability distributions over LDA topics per document, in order to recommend unique and novel documents to specific users. It's essentially just a wrapper to the core LDA library in R: [_"topicmodels"_.](https://cran.r-project.org/web/packages/topicmodels/topicmodels.pdf)
+**textRec** utlizes Latent Dirichlet Allocation and Jensen-Shannon-Divergence on the discrete probability distributions over LDA topics per document, in order to recommend unique and novel documents to specific users. It's essentially just a wrapper to the core LDA library in R: [_"topicmodels"_.](https://cran.r-project.org/web/packages/topicmodels/topicmodels.pdf)
 
 In order to get recoommendations, simply input a dataframe of users, a dataframe of documents, and a dataframe of user/document interactions, set model hyperparameters and the amount of LDA topics to model (or alternatively, rely on textRec to automate modt hyperparameters using ldatuning::FindTopicsNumber() to find an optimal k number of topics). 
 
@@ -54,7 +54,7 @@ Install the package directly from github with devtools. Run the first line if yo
 devtools::install_github('HenrikVarmer/textRec')
 ```
 
-### textRec() function: Dataframes and hyperparameters
+## textRec() function: Dataframes and hyperparameters
 
 ```textRec()``` is the main function, which takes three dataframe inputs, and outputs one single dataframe containing all users with recommendations. One row in the output is one recommendation for one user. See below comments for a brief explanation of what each parameter requires. 
 
