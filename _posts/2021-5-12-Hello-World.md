@@ -9,7 +9,7 @@ Say you want to recommend this to an individual user based on some sort of behav
 
 How to go about this?
 
-Well, enter [Latent Dirichlet allocation](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation) or: LDA. This is a method was first applied in machine learning by David Blei, Andrew Ng and Michael I. Jordan in 2003. The super-duper short cliffnotes on this algorithm is that is finds latent topics in a corpus of documents. These latent topics are essentially multiple discrete probablity distributions over documents and words. Allow me to elaborate a bit...
+Well, enter [Latent Dirichlet allocation](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation) or, simply; LDA. This is a method was first applied in machine learning by David Blei, Andrew Ng and Michael I. Jordan in 2003. The super-duper short cliffnotes on this algorithm is that is finds latent topics in a corpus of documents. These latent topics are essentially multiple discrete probablity distributions over documents and words. Allow me to elaborate a bit...
 
 For our use-case the core LDA algoritm can be illustrated like this: 
 
@@ -26,7 +26,7 @@ In my opinion, this is the correct idea, but we need an aditional abstraction la
 ## Build a Divergence Matrix
 So how can we go about generating recommendations based on the entire list of genereated discrete probablity distributions for each document? 
 
-My suggested approach is to use Jensen-Shannon Divergence, a simple equation which we can use to find the distance between each these probablity distributions. In practice, you'd write your own implementation of Jensen-Shannon Divergence in your preferred language, then construct a matrix of the computed divergences between all of your probablity distributions, derived from the corpus of documents.
+My suggested approach is to use [Jensen-Shannon Divergence](https://en.wikipedia.org/wiki/Jensen–Shannon_divergence), a simple equation which we can use to find the distance between each these probablity distributions. In practice, you'd write your own implementation of Jensen-Shannon Divergence in your preferred language, then construct a matrix of the computed divergences between all of your probablity distributions, derived from the corpus of documents.
 
 ![Divergence_Matrix](https://user-images.githubusercontent.com/40164071/117974802-45738c00-b32e-11eb-8494-04415e68deca.png)
 
