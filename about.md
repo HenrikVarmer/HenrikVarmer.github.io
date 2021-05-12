@@ -6,10 +6,10 @@ permalink: /about/
 
 This is my personal blog about Data Science, which will serve as a personal repository for collecting my thoughts. 
 
-### More Information
+### Topics
 
-A place to include any other types of information that you'd like to include about yourself.
+This blog will focus broadly on topics within Data Science - this can be anything from concrete implementation examples of various algorithms, to the challenges associated with implementing data science solutions in organizations. As I said, data science _broadly._
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+For any inquiries, you can contact me using the social links below. You can also shoot me an email at Henrik * at * varmer.dk
