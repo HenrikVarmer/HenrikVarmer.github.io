@@ -15,10 +15,26 @@ For our use-case the core LDA algoritm can be illustrated like this:
 
 ![LDAmodel](https://user-images.githubusercontent.com/40164071/117971449-3559ad80-b32a-11eb-8200-602511c3fb72.png)
 
-As illustrated, the data input of the model is the entire corpus of documents. There's also some hyperparameters involved, but let's get back to that later. What you need to know for now, is that the model outputs discrete probablity distributions of the identified latent topics in each document. Of course, this is not the only thing the model outputs, but this is actually all we need in order to generate some usful recommendations. 
+As illustrated, the data input of the model is the entire corpus of documents. There's also some hyperparameters involved, but let's get back to that later. What you need to know for now is that the model outputs discrete probablity distributions of the identified latent topics in each document. Of course, this is not the only thing the model outputs, but this is actually all we need in order to generate some useful recommendations. 
+
+## Right idea, lacking implementation
+Most implementations I've seen of LDA focus on these discovered topics as the primary unit of analysis. They attempt to derive meaning and context from the words that contribute the most to each topic. One could imagine a recommendation system that viewed these latent topics as classifications of each document. I.e. if you have a user that's shown interest in a particular topic, recommend them more from the same topic.
+
+In my opinion, this is the correct idea, but we need an aditional abstraction layer, in order to generate meaninful recommendations. You see, one of the core assumptions of LDA is that each document consists of _multiple_ topics.
+
+
+## Build a Divergence Matrix
+So how can we go about generating recommendations based on the entire list of genereated discrete probablity distributions for each document? 
+
+My suggested approach is to use Jensen-Shannon Divergence, a simple equation which we can use to find the distance between each these probablity distributions. In practice, you'd write your own implementation of Jensen-Shannon Divergence in your preferred language, then construct a matrix of the computed divergences between all of your probablity distributions, derived from the corpus of documents.
+
+![DivergenceMatrix](https://user-images.githubusercontent.com/40164071/117974310-b6ff0a80-b32d-11eb-8bf3-560508b9ffe7.png)
+
+This matrix is what you can base your recommendations on. 
 
 
 
 ![LDAJSD](https://user-images.githubusercontent.com/40164071/117963799-1c003380-b321-11eb-90fa-fc94a33f9725.png)
 ![TopicsWords](https://user-images.githubusercontent.com/40164071/117963809-1e628d80-b321-11eb-8401-57b430ab6872.jpg)
 ![AllUsers](https://user-images.githubusercontent.com/40164071/117963820-202c5100-b321-11eb-8b47-d05d7e1fc91c.jpg)
+
