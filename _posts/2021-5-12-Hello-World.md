@@ -9,13 +9,13 @@ Say you want to recommend this to an individual user based on some sort of behav
 
 How to go about this?
 
-Well, enter Latent Dirichlet allocation or: LDA. This is a method was first applied in machine learning by David Blei, Andrew Ng and Michael I. Jordan in 2003. The super-duper short cliffnotes on this algorithm is that is finds latent topics in a corpus of documents. These topics are essentially multiple discrete probablity distributions of documents and words. Allow me to elaborate a bit...
+Well, enter Latent Dirichlet allocation or: LDA. This is a method was first applied in machine learning by David Blei, Andrew Ng and Michael I. Jordan in 2003. The super-duper short cliffnotes on this algorithm is that is finds latent topics in a corpus of documents. These latent topics are essentially multiple discrete probablity distributions over documents and words. Allow me to elaborate a bit...
 
-For our use-case the algoritm can be implemented like this: 
+For our use-case the core LDA algoritm can be illustrated like this: 
 
 ![LDAmodel](https://user-images.githubusercontent.com/40164071/117971449-3559ad80-b32a-11eb-8200-602511c3fb72.png)
 
-The primary data input of the model is the entire corpus of documents. 
+As illustrated, the data input of the model is the entire corpus of documents. There's also some hyperparameters involved, but let's get back to that later. What you need to know for now, is that the model outputs discrete probablity distributions of the identified latent topics in each document. Of course, this is not the only thing the model outputs, but this is actually all we need in order to generate some usful recommendations. 
 
 
 
