@@ -28,7 +28,7 @@ So how can we go about generating recommendations based on the entire list of ge
 
 My suggested approach is to use Jensen-Shannon Divergence, a simple equation which we can use to find the distance between each these probablity distributions. In practice, you'd write your own implementation of Jensen-Shannon Divergence in your preferred language, then construct a matrix of the computed divergences between all of your probablity distributions, derived from the corpus of documents.
 
-![DivergenceMatrix](https://user-images.githubusercontent.com/40164071/117974310-b6ff0a80-b32d-11eb-8bf3-560508b9ffe7.png)
+![Divergence_Matrix](https://user-images.githubusercontent.com/40164071/117974802-45738c00-b32e-11eb-8494-04415e68deca.png)
 
 This matrix is what you can base your recommendations on. 
 
