@@ -17,7 +17,8 @@ For our use-case the core LDA algoritm can be illustrated like this:
 
 As illustrated, the data input of the model is the entire corpus of documents. There's also some hyperparameters involved, but let's get back to that later. What you need to know for now is that the model outputs discrete probablity distributions of the identified latent topics in each document. Of course, this is not the only thing the model outputs, but this is actually all we need in order to generate some useful recommendations. 
 
-## Right idea, lacking implementation
+> Right idea, lacking implementation
+
 Most implementations I've seen of LDA focus on these discovered topics as the primary unit of analysis. They attempt to derive meaning and context from the words that contribute the most to each topic. One could imagine a recommendation system that viewed these latent topics as classifications of each document. I.e. if you have a user that's shown interest in a particular topic, recommend them more from the same topic.
 
 In my opinion, this is the correct idea, but we need an aditional abstraction layer, in order to generate meaninful recommendations. You see, one of the core assumptions of LDA is that each document consists of _multiple_ topics.
@@ -35,11 +36,9 @@ This matrix is essentially all you need in order to generate meaningful recommen
 The logic is then: A user has clicked on document ID132. Do a lookup in your divergence matrix table, and select all documents ordered by least distance to document ID132. Recommend as many of these documents as you like (e.g. top 3). 
 
 ## Code
-I've written my own implementation on this in R, [here.](https://github.com/HenrikVarmer/textRec) 
+I've written my own implementation of the concept described above in R, [here.](https://github.com/HenrikVarmer/textRec) 
 
-textRec is essentially just a wrapper to the core LDA library in R: [_"topicmodels"_.](https://cran.r-project.org/web/packages/topicmodels/topicmodels.pdf)
-
-The code is an R implementation of the concept described above. It utlizes Latent Dirichlet Allocation and Jensen-Shannon-Divergence on the discrete probability distributions over LDA topics per document, in order to recommend unique and novel documents to specific users.
+textRec utlizes Latent Dirichlet Allocation and Jensen-Shannon-Divergence on the discrete probability distributions over LDA topics per document, in order to recommend unique and novel documents to specific users. It's essentially just a wrapper to the core LDA library in R: [_"topicmodels"_.](https://cran.r-project.org/web/packages/topicmodels/topicmodels.pdf)
 
 In order to get recoommendations, simply input a dataframe of users, a dataframe of documents, and a dataframe of user/document interactions, set model hyperparameters and the amount of LDA topics to model (or alternatively, rely on textRec to automate modt hyperparameters using ldatuning::FindTopicsNumber() to find an optimal k number of topics). 
 
