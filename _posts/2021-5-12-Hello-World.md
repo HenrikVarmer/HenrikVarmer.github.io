@@ -30,7 +30,13 @@ My suggested approach is to use [Jensen-Shannon Divergence](https://en.wikipedia
 
 ![Divergence_Matrix](https://user-images.githubusercontent.com/40164071/117974802-45738c00-b32e-11eb-8494-04415e68deca.png)
 
-This matrix is what you can base your recommendations on. 
+This matrix is essentially all you need in order to generate meaningful recommendations using LDA. Now, we have a complete dataframe of the computed Jensen-Shannon divergence of the topic probability distribution of every single document in our corpus. The only adittional data you need, is a dataframe containing the interactions of your users, with a particular document. This could be a click on said document, a signup for a conference (if you're recommending events based on event-descriptions), a download of an article, or a view on a blog post. 
+
+The logic is then: A user has clicked on document ID132. Do a lookup in your divergence matrix table, and select all documents ordered by least distance to document ID132. Recommend as many of these documents as you like (e.g. top 3). 
+
+## Code
+I've written my own implementation on this in R, [here.](https://github.com/HenrikVarmer/textRec) It's essentially just a wrapper to the core LDA library in R: [_"topicmodels"_.](https://cran.r-project.org/web/packages/topicmodels/topicmodels.pdf)
+
 
 
 
