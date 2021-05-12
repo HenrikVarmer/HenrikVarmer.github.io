@@ -13,7 +13,7 @@ Well, enter Latent Dirichlet allocation or: LDA. This is a method was first appl
 
 For our use-case the algoritm can be implemented like this: 
 
-![Untitled_Artwork](https://user-images.githubusercontent.com/40164071/117970510-07279e00-b329-11eb-9cbb-ea077da0660f.png)
+![LDAmodel](https://user-images.githubusercontent.com/40164071/117971449-3559ad80-b32a-11eb-8200-602511c3fb72.png)
 
 The primary data input of the model is the entire corpus of documents. 
 
