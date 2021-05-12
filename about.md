@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-This is my personal blog about Data Science, which will serve as a personal repository for collecting my thoughts. 
+This is my personal blog about Data Science, which will serve as a place for collecting my thoughts and ideas. 
 
 ### Topics
 
