@@ -11,7 +11,7 @@ Even in cases where you do have additional data on which base your predictions, 
 
 The concept of Association Rules (also known as Market basket analysis) has been around a _very_ long time. And for good reason. It's simple to implement, easy to exlain, and delivers great practical results. 
 
-## aruleRec: Easy and fast recommendations with association rule learning in R
+## Code
 
 I've written what's essentially a wrapper for the [arules](https://cran.r-project.org/web/packages/arules/index.html) library in R. The added functionality generates a dataframe with final predictions, rather than just the rules themselves.
 
