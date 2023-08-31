@@ -45,7 +45,7 @@ However, to make an adequate calculation of how this will impact a final budget 
 
 Jumping to the conclusion, we finally settled for an Azure-hosted Snowflake instance as the core of our data architecture. Snowflake had a billing structure that aligned perfectly with our needs for running multiple smaller workloads during the day (Snowflake is billed per second). It was cheap, effective, and reliable. It is a PaaS offering, so it does not require a DBA to operate. Perfect for our needs at the time.
 
-
+![Dataplatform](https://github.com/HenrikVarmer/HenrikVarmer.github.io/blob/d53c99f755d3b3d6635f016a287a3e9db636313b/images/Dataplatform.png)
 
 The image above is a crude simplification of our current data stack in 2023, but with this illustration, it is easy to understand how the various pieces are connected in our architecture. Snowflake + dbt handles all major data wrangling and transformation tasks, while Python + AKS handles all ML and AI workloads.  
 
