@@ -16,7 +16,7 @@ For us, it was the sum of both minor (and some critical) issues with our legacy 
 
 While these issues were piling up, business users were frustrated with data quality and timeliness of data. Data Scientists and engineers were frustrated with operating and developing on the platform itself. Deploying code was a huge mess with little automation and testing. Something had to be done.
 
-##How we did it
+How we did it
 In late 2020, I joined Lederne with the clear objective of improving the organization's Data & Analytics capabilities. This effort was centered around three key focal points, aimed at scaling the data capabilities of the organization:
 •	Understanding (data literacy) across the organization
 •	People & skills in the Data & Analytics team
