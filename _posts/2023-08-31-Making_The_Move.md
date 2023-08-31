@@ -1,6 +1,6 @@
 ---
 layout: post
-title: From legacy on-prem data stack to scalable cloud data platform 
+title: Making the move. From legacy on-prem data stack to scalable cloud data platform 
 ---
 
 Organizations are migrating away from legacy data stacks, in part because of the enormous demand for compute by larger machine learning models, - and even larger data sets. 
