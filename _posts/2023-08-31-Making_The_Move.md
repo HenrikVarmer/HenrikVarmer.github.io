@@ -34,7 +34,9 @@ I’d argue that – especially for smaller data science teams – the cloud mak
 Beware of cost benchmarks and rosy sales pitches. Early in our adoption phase, I was shown a graph, illustrating how some vendors were 3-4 times more expensive than others per hour of unit of compute. It seems innocent enough, objective even. It’s just a graph comparing costs of various warehouses per hour.
 
 However, to make an adequate calculation of how this will impact a final budget for running a particular workload, you need to consider billing structure compared to expected workload and runtime. As a small data science team in a small-ish company, it simply did not make sense subscribing to a platform that uses per-hour billing and will charge you a full hour for compute workloads that run for 30 minutes. 
-What we also wanted from our platform, besides keeping costs down:
+
+#### What we also wanted from our platform, besides keeping costs down:
+
 *	Code first (IAC where possible)
 *	Full Automation (tests, deployments, scheduling, everything)
 *	Scalability of compute
