@@ -42,6 +42,7 @@ However, to make an adequate calculation of how this will impact a final budget 
 *	Scalability of compute
 *	Ease of use (for both data scientists and key stakeholders in the organization)
 *	Operations, GDPR, security, compliance
+
 Jumping to the conclusion, we finally settled for an Azure-hosted Snowflake instance as the core of our data architecture. Snowflake had a billing structure that aligned perfectly with our needs for running multiple smaller workloads during the day (Snowflake is billed per second). It was cheap, effective, and reliable. It is a PaaS offering, so it does not require a DBA to operate. Perfect for our needs at the time.
 
 
