@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Making the move
+title: Making the move - From legacy on-prem data stack to scalable cloud data platform 
 ---
-## From legacy on-prem data stack to scalable cloud data platform 
+
 Organizations are moving data workloads to the cloud, in part because of the enormous demand for compute by larger machine learning models, - and even larger data sets. 
 For us, it was the sum of both minor (and some critical) issues with our legacy data platform, that prompted us to finally make the move and migrate everything to our new cloud data platform. Some of the issues we encountered with our old platform were:
 
