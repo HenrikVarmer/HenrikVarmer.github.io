@@ -3,7 +3,7 @@ layout: post
 title: Making the move. From legacy on-prem data stack to scalable cloud data platform 
 ---
 
-Organizations are migrating away from legacy data stacks, in part because of the enormous demand for compute by larger machine learning models, - and even larger data sets. 
+Organizations are moving data workloads to the cloud, in part because of the enormous demand for compute by larger machine learning models, - and even larger data sets. 
 For us, it was the sum of both minor (and some critical) issues with our legacy data platform, that prompted us to finally make the move and migrate everything to our new cloud data platform. Some of the issues we encountered with our old platform were:
 
 *	Lack of governance and a robust ops framework
@@ -19,7 +19,7 @@ While these issues were piling up, business users were frustrated with data qual
 
 ### How we did it
 In late 2020, I joined Lederne with the clear objective of improving the organization's Data & Analytics capabilities. This effort was centered around three key focal points, aimed at scaling the data capabilities of the organization:
-*	Understanding (data literacy) across the organization
+*	Data literacy in the organization
 *	People & skills in the Data & Analytics team
 *	Compute (building an architecture that reliably supports heavy ML & AI workloads)
 
@@ -42,6 +42,7 @@ However, to make an adequate calculation of how this will impact a final budget 
 *	Scalability of compute
 *	Ease of use (for both data scientists and key stakeholders in the organization)
 *	Operations, GDPR, security, compliance
+*	Serverless
 
 Jumping to the conclusion, we finally settled for an Azure-hosted Snowflake instance as the core of our data architecture. Snowflake had a billing structure that aligned perfectly with our needs for running multiple smaller workloads during the day (Snowflake is billed per second). It was cheap, effective, and reliable. It is a PaaS offering, so it does not require a DBA to operate. Perfect for our needs at the time.
 
