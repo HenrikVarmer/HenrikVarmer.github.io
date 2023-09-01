@@ -20,7 +20,9 @@ Some of the issues we encountered with our old platform were:
 While these issues were piling up, business users were frustrated with data quality and timeliness of data. Data Scientists and engineers were frustrated with operating and developing on the platform itself. Deploying code was a huge mess with little automation and testing. Something had to be done.
 
 ### How we did it
-In late 2020, I joined Lederne with the clear objective of improving the organization's Data & Analytics capabilities. This effort was centered around three key focal points, aimed at scaling the data capabilities of the organization:
+
+Our overall data strategi in the organization was - from the beginning - centered around three key focal points, aimed at scaling the data capabilities of the organization:
+
 *	Data literacy in the organization
 *	People & skills in the Data & Analytics team
 *	Compute (building an architecture that reliably supports heavy ML & AI workloads)
@@ -51,7 +53,7 @@ We finally settled for an Azure-hosted Snowflake instance as the core of our dat
 
 ![Dataplatform](../images/Dataplatform.png)
 
-The image above is a crude simplification of our current data stack in 2023, but with this illustration, it is easy to understand how the various pieces are connected in our architecture. Snowflake & dbt handles all major data wrangling and transformation tasks, while Python + AKS handles all ML and AI workloads.  
+The image above is a crude simplification of our current data stack in 2023, but it shows how the various pieces are connected in our architecture. Snowflake & dbt handles all major data wrangling and transformation tasks, while Python + AKS handles all ML and AI workloads.  
 
 Our platform and architecture, for the past 2 years, has supported +25 ML models in production, +100 dashboards (with ~150 users), countless data workloads and reverse ETL flows. All while a team of 8 data scientists/engineers/analysts, are actively collaborating on development of new data products.
 
@@ -74,9 +76,9 @@ My advice will be to spend ample time on planning the migration in detail. Consi
 
 By embracing the cloud, we unlocked a heap of benefits that have transformed the way we operate and deliver value to our organization. The advantages of the new cloud data platform are many:
 
-*	Infinite Compute and Scalability: The cloud offers limitless compute resources, which allow us to handle even larger machine learning models and massive datasets seamlessly. This scalability empowers our data science team to deploy ML models with confidence.
+*	Infinite Compute and Scalability: The cloud (and snowflake) offers limitless compute resources, which allow us to handle even larger machine learning models and massive datasets seamlessly. This scalability empowers our data science team to deploy ML models with confidence.
 *	Robust Governance and Automation: While migrating our data workloads, we established a robust governance framework and embraced automation, seeking to streamline data operations, and reduce the risk of errors. This has significantly improved our data management practices and enhanced data quality and reliability.
-*	Cost Efficiency: Despite concerns about cloud costs, we learned to be cost-conscious and design a cost-effective architecture. Through careful planning and optimization, we saw a 50% decrease in costs after the migration.
+*	Cost Efficiency: Despite our initial and legitimate concerns about cloud costs, we learned to be cost-conscious and design a cost-effective architecture. Through careful planning and optimization, we saw a 50% decrease in costs after our migration.
 *	Improved User Experience: Timeliness and data quality were constant sources of frustration for our users with the legacy stack. By transitioning to the cloud, we now deliver data more efficiently and in near real-time, meeting our users' expectations and driving better decision-making.
 
 Our experience shows that, especially for smaller data science teams, migrating to a data platform is a feasible, - and that it certainly can be a sensible endeavor from a cost perspective. But - as always. Tread with caution. 
