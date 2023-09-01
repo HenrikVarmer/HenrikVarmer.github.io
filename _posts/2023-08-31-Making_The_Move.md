@@ -4,7 +4,9 @@ title: Making the move - From legacy on-prem data stack to scalable cloud data p
 ---
 
 Organizations are moving data workloads to the cloud, in part because of the enormous demand for compute by larger machine learning models, - and even larger data sets. 
-For us, it was the sum of both minor (and some critical) issues with our legacy data platform, that prompted us to finally make the move and migrate everything to our new cloud data platform. Some of the issues we encountered with our old platform were:
+For us, it was the sum of both minor (and some critical) issues with our legacy data platform, that prompted us to finally make the move and migrate everything to our new cloud data platform. 
+
+Some of the issues we encountered with our old platform were:
 
 *	Lack of governance and a robust ops framework
 *	Little or no automation in deployments (this is huge)
@@ -32,11 +34,9 @@ The next challange was scaling compute. Essentialy building a new platform that 
 ### The promise (and fear) of the cloud for data science teams
 The cloud promises infinite compute and scalable infrastructure on-demand. This is highly attractive to someone stuck with an on-premises data platform, where (for some) the experience is the opposite. It is not all roses though; the cloud can be quite a costly acquaintance, as recently outlined by DHH in this blog post: https://world.hey.com/dhh/why-we-re-leaving-the-cloud-654b47e0
 
-I’d argue that – especially for smaller data science teams – the cloud makes perfect sense. We’ve seen our costs decrease 50 % after completing our migration to our cloud data platform. I believe a cost-centric mindset is super important and actively thinking about spend, - and designing a cost-effective architecture from the get-go, is the key to how we’ve been able to keep costs down. 
+I’d argue that – especially for smaller data science teams – the cloud makes perfect sense. We’ve seen our costs decrease 50 % after completing our migration to our cloud data platform. A cost-centric mindset is super important and actively thinking about spend, - and designing a cost-effective architecture from the get-go, is the key to how we’ve been able to keep costs down. 
 
-Beware of cost benchmarks and rosy sales pitches. Early in our adoption phase, I was shown a graph, illustrating how some vendors were 3-4 times more expensive than others per hour of unit of compute. It seems innocent enough, objective even. It’s just a graph comparing costs of various warehouses per hour.
-
-However, to make an adequate calculation of how this will impact a final budget for running a particular workload, you need to consider billing structure compared to expected workload and runtime. As a small data science team in a small-ish company, it simply did not make sense subscribing to a platform that uses per-hour billing and will charge you a full hour for compute workloads that run for 30 minutes. 
+Beware of cost benchmarks and rosy sales pitches. Early in our adoption phase, I was shown a graph, illustrating how some vendors were 3-4 times more expensive than others per hour of unit of compute. However, to make an adequate calculation of how this will impact a final budget for running a particular workload, you need to consider billing structure compared to expected workload and runtime. As a small data science team in a small-ish company, it simply did not make sense subscribing to a platform that uses per-hour billing and will charge you a full hour for compute workloads that run for 30 minutes. 
 
 #### What we also wanted from our platform, besides keeping costs down:
 
@@ -47,11 +47,11 @@ However, to make an adequate calculation of how this will impact a final budget 
 *	Operations, GDPR, security, compliance
 *	Serverless
 
-Jumping to the conclusion, we finally settled for an Azure-hosted Snowflake instance as the core of our data architecture. Snowflake had a billing structure that aligned perfectly with our needs for running multiple smaller workloads during the day (Snowflake is billed per second). It was cheap, effective, and reliable. It is a PaaS offering, so it does not require a DBA to operate. Perfect for our needs at the time.
+We finally settled for an Azure-hosted Snowflake instance as the core of our data architecture. Snowflake had a billing structure that aligned perfectly with our needs for running multiple smaller workloads during the day (Snowflake is billed per second). It was cheap, effective, and reliable. It is a PaaS offering, so it does not require a DBA to operate. Perfect for our needs at the time.
 
 ![Dataplatform](../images/Dataplatform.png)
 
-The image above is a crude simplification of our current data stack in 2023, but with this illustration, it is easy to understand how the various pieces are connected in our architecture. Snowflake + dbt handles all major data wrangling and transformation tasks, while Python + AKS handles all ML and AI workloads.  
+The image above is a crude simplification of our current data stack in 2023, but with this illustration, it is easy to understand how the various pieces are connected in our architecture. Snowflake & dbt handles all major data wrangling and transformation tasks, while Python + AKS handles all ML and AI workloads.  
 
 Our platform and architecture, for the past 2 years, has supported +25 ML models in production, +100 dashboards (with ~150 users), countless data workloads and reverse ETL flows. All while a team of 8 data scientists/engineers/analysts, are actively collaborating on development of new data products.
 
