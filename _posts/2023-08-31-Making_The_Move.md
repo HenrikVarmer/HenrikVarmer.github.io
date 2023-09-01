@@ -58,12 +58,13 @@ Our platform spend is down 50 %.
 
 ### How we got there
 Once we’d settled on an architecture we really believed in, it was time to make the final migration. We divided the migration process in a few steps:
-1)	Spin up core elements of the platform (build the integrations)
-2)	Migrate sources (stage them with ADF and dump in blob/snowflake)
-3)	Move transformations to dbt
-4)	Deploy ML to AKS
-5)	Point dashboards to new sources
-6)	Have all the above in fully automated CI/CD pipelines. Write tests
+
+*	Spin up core elements of the platform (build the integrations)
+*	Migrate raw sources (stage with ADF and dump in blob/snowflake)
+*	Rewrite transformations in dbt
+*	Deploy ML models on AKS
+*	Point dashboards to new sources
+*	Have all the above in fully automated CI/CD pipelines. Write tests
 
 While this – on paper – looks like a completely doable list of chores, it is something that can take a toll on team morale. It will not be smooth sailing. There will be downtime. There will be things you missed. 
 My advice will be to spend ample time on planning the migration in detail. Consider who does what, when. Make lists. When trouble arises, make new lists.
