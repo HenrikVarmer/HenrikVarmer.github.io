@@ -42,7 +42,7 @@ Beware of cost benchmarks and rosy sales pitches. Early in our adoption phase, I
 
 #### What we also wanted from our platform, besides keeping costs down:
 
-*	Code first (IAC where possible)
+*	Infrastructure as Code
 *	Full Automation (tests, deployments, scheduling, everything)
 *	Scalability of compute
 *	Ease of use (for both data scientists and key stakeholders in the organization)
