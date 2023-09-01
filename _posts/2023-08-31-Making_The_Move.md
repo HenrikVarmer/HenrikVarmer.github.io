@@ -71,10 +71,10 @@ Once we’d settled on an architecture we really believed in, it was time to mak
 *	Point dashboards to new sources
 *	Have all the above in fully automated CI/CD pipelines. Write tests
 
-While this – on paper – looks like a completely doable list of chores, it is something that can take a toll on team morale. It will not be smooth sailing. There will be downtime. There will be things you missed. 
-My advice will be to spend ample time on planning the migration in detail. Consider who does what, when. Make lists. When trouble arises, make new lists.
+While this – on paper – looks like a completely doable list of chores, the reality is that this migration was not smooth sailing. There was be downtime. We missed critical things in our initial planning. 
+My advice will be to spend ample time on planning the migration in detail. Consider who does what, when. Make lists. When trouble arises, make new lists, and make new plans. 
 
-By embracing the cloud, we unlocked a heap of benefits that have transformed the way we operate and deliver value to our organization. The advantages of the new cloud data platform are many:
+In the end, it will all be worth it: By embracing the cloud, we unlocked a heap of benefits that have transformed the way we operate and deliver value to our organization. The advantages of the new cloud data platform are many:
 
 *	Infinite Compute and Scalability: The cloud (and snowflake) offers limitless compute resources, which allow us to handle even larger machine learning models and massive datasets seamlessly. This scalability empowers our data science team to deploy ML models with confidence.
 *	Robust Governance and Automation: While migrating our data workloads, we established a robust governance framework and embraced automation, seeking to streamline data operations, and reduce the risk of errors. This has significantly improved our data management practices and enhanced data quality and reliability.
