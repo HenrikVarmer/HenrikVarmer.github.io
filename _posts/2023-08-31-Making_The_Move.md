@@ -54,7 +54,7 @@ Our platform and architecture, for the past 2 years, has supported +25 ML models
 
 We are now able to ship machine learning and data products in a couple of weeks. Down from months. 
 
-Our platform / compute spend is down 50 %.
+Our platform spend is down 50 %.
 
 ### How we got there
 Once we’d settled on an architecture we really believed in, it was time to make the final migration. We divided the migration process in a few steps:
