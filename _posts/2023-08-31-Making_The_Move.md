@@ -32,7 +32,7 @@ Simultaneously, we brought on new people for the Data & Analytics team, effectiv
 The next challange was scaling compute. Essentialy building a new platform that suited our needs and could support heavy AI workloads.
 
 ### The promise (and fear) of the cloud for data science teams
-The cloud promises infinite compute and scalable infrastructure on-demand. This is highly attractive to someone stuck with an on-premises data platform, where (for some) the experience is the opposite. It is not all roses though; the cloud can be quite a costly acquaintance, as recently outlined by DHH in this blog post: https://world.hey.com/dhh/why-we-re-leaving-the-cloud-654b47e0
+The cloud promises infinite compute and scalable infrastructure on-demand. This is highly attractive to someone stuck with an on-premises data platform, where (for some) the experience is the opposite. It is not all roses though; the cloud can be quite a costly acquaintance.
 
 I’d argue that – especially for smaller data science teams – the cloud makes perfect sense. We’ve seen our costs decrease 50 % after completing our migration to our cloud data platform. A cost-centric mindset is super important and actively thinking about spend, - and designing a cost-effective architecture from the get-go, is the key to how we’ve been able to keep costs down. 
 
