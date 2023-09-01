@@ -24,7 +24,10 @@ In late 2020, I joined Lederne with the clear objective of improving the organiz
 *	Compute (building an architecture that reliably supports heavy ML & AI workloads)
 
 The data maturity of the organization was the first place we started. We held workshops, internal learning sessions, and matured the understanding of data lifecycle, use cases, and data governance. Preparing for the future, it is important that data is not only a competence within the data team, but also top of mind across all major functions of our organization. 
-We scaled our Data & Analytics team to 9 people over approximately 1.5 years. This effectively doubled the team. The areas where we scaled up, particularly, were in the fields of Data Engineering & Data Science.
+
+Simultaneously, we brought on new people for the Data & Analytics team, effectively doubling the size of team in a year. The areas where we scaled up, particularly, were in the fields of Data Engineering & Data Science.
+
+The next challange was scaling compute. Essentialy building a new platform that suited our needs and could support heavy AI workloads.
 
 ### The promise (and fear) of the cloud for data science teams
 The cloud promises infinite compute and scalable infrastructure on-demand. This is highly attractive to someone stuck with an on-premises data platform, where (for some) the experience is the opposite. It is not all roses though; the cloud can be quite a costly acquaintance, as recently outlined by DHH in this blog post: https://world.hey.com/dhh/why-we-re-leaving-the-cloud-654b47e0
