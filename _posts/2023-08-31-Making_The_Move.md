@@ -57,7 +57,7 @@ We are now able to ship machine learning and data products in a couple of weeks.
 Our platform spend is down 50 %.
 
 ### How we got there
-Once we’d settled on an architecture we really believed in, it was time to make the final migration. We divided the migration process in a few steps:
+Once we’d settled on an architecture we really believed in, it was time to make the final migration. We divided the migration process in a few key steps:
 
 *	Spin up core elements of the platform (build the integrations)
 *	Migrate raw sources (stage with ADF and dump in blob/snowflake)
