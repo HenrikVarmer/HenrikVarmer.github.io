@@ -4,11 +4,9 @@ title: About
 permalink: /about/
 ---
 
-This is my personal blog about Data Science, which will serve as a place for collecting my thoughts and ideas. 
-
 ### Topics
 
-This blog will focus broadly on topics within Data Science - this can be anything from concrete implementation examples of various algorithms, to the challenges associated with implementing data science solutions in organizations. As I said, data science _broadly._
+This blog serves as a collection of my thoughts on topics within Data Science - this can be anything from concrete implementation examples of various algorithms, to the challenges associated with implementing data science solutions in organizations.
 
 ### Contact me
 
