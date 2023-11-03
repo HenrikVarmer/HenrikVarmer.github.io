@@ -9,7 +9,4 @@ My talk was titled "AI in practice and how we got there" and I spent my time sho
 
 You can watch the full talk below: (20 minutes)
 
-<iframe width="420" height="315" src="https://www.youtube.com/watch?v=0TAvwGoF_Mw" frameborder="0" allowfullscreen></iframe>
-
-
 [![Watch the video](https://img.youtube.com/vi/0TAvwGoF_Mw/default.jpg)](https://www.youtube.com/watch?v=0TAvwGoF_Mw)
