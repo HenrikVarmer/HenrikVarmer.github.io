@@ -8,7 +8,7 @@ In this post, I'll share some details on how we built a small application that m
 ### What is it
 We built an AI tool that gives the user 3 (hopefully) relevant and active job listings, based on their resume. The AI also lets the user know what they should focus on in a written application, and even helps them get started.
 
-You can try it now, live at: https://www.lederne.dk/kampagner/jobmatch
+You can try it now, live [here.](https://www.lederne.dk/kampagner/jobmatch)
 
 ### How does it work
 It works by taking the following input:
@@ -55,4 +55,4 @@ The team has many ideas on how to expand this product into something more. On th
 * Career paths (i.e. show how people progress throughout their career, which job titles are tied together, perhaps shown in a graph visualisation)
 * Even more integrations
 
-I'll end with this: A talk i gave, where - among other things - I talked about the technical implementation of this project [![Watch the video](https://img.youtube.com/vi/0TAvwGoF_Mw/default.jpg)](https://www.youtube.com/watch?v=0TAvwGoF_Mw&start=646)
+I'll end with this: A talk i gave, where - among other things - I talked about [the technical implementation of this project](https://www.youtube.com/watch?v=0TAvwGoF_Mw&start=646)
