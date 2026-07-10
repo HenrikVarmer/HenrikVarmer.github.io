@@ -1,18 +1,320 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Henrik Varmer — Head of Data &amp; AI</title>
+  <meta name="description" content="Henrik Varmer — Senior Director, Head of Data & AI at VELUX. I build teams and ship data & AI products." />
+  <meta name="author" content="Henrik Varmer" />
 
-<div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
+  <!-- Open Graph -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Henrik Varmer — Head of Data & AI" />
+  <meta property="og:description" content="Senior Director, Head of Data & AI at VELUX. I build teams and ship data & AI products." />
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/40164071?v=4" />
+  <meta property="og:url" content="https://henrikvarmer.github.io" />
+  <meta name="twitter:card" content="summary" />
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◆</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
 
-      <div class="entry">
-        {{ post.excerpt }}
+  <style>
+    :root {
+      --bg: #0a0e14;
+      --bg-soft: #0f141d;
+      --card: rgba(255, 255, 255, 0.03);
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #e8ecf3;
+      --muted: #8b95a7;
+      --faint: #5c6577;
+      --accent: #5eead4;
+      --accent-2: #7dd3fc;
+      --glow: rgba(94, 234, 212, 0.14);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Ambient background */
+    .aura {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(600px circle at 15% 10%, rgba(94, 234, 212, 0.10), transparent 45%),
+        radial-gradient(700px circle at 85% 20%, rgba(125, 211, 252, 0.08), transparent 50%),
+        radial-gradient(900px circle at 50% 100%, rgba(94, 234, 212, 0.06), transparent 55%);
+    }
+    .grid-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.35;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(circle at 50% 30%, black, transparent 75%);
+      -webkit-mask-image: radial-gradient(circle at 50% 30%, black, transparent 75%);
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: clamp(4rem, 12vh, 9rem) 1.5rem 4rem;
+    }
+
+    /* Hero */
+    .hero { display: flex; flex-direction: column; align-items: flex-start; }
+
+    .avatar {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 0 4px rgba(94, 234, 212, 0.06), 0 18px 40px -12px rgba(0, 0, 0, 0.6);
+      margin-bottom: 1.75rem;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 1.1rem;
+    }
+    .eyebrow .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px var(--glow);
+      animation: pulse 2.6s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.35;} }
+
+    h1 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(2.6rem, 8vw, 4.2rem);
+      line-height: 1.02;
+      letter-spacing: -0.015em;
+      margin-bottom: 1.1rem;
+    }
+    h1 .grad {
+      background: linear-gradient(120deg, var(--accent) 0%, var(--accent-2) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .role {
+      font-size: clamp(1.05rem, 2.6vw, 1.28rem);
+      color: var(--text);
+      font-weight: 500;
+      margin-bottom: 0.35rem;
+    }
+    .role b { color: var(--accent-2); font-weight: 600; }
+
+    .tagline {
+      font-size: 1.02rem;
+      color: var(--muted);
+      max-width: 46ch;
+      margin-bottom: 1.6rem;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 1.25rem;
+      font-size: 0.9rem;
+      color: var(--faint);
+      margin-bottom: 2.6rem;
+    }
+    .meta span { display: inline-flex; align-items: center; gap: 0.45rem; }
+    .meta svg { width: 15px; height: 15px; stroke: var(--muted); }
+
+    /* Focus tags */
+    .focus {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 3rem;
+    }
+    .tag {
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: var(--text);
+      padding: 0.5rem 0.95rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--card);
+      backdrop-filter: blur(6px);
+      transition: border-color 0.25s, color 0.25s, transform 0.25s;
+    }
+    .tag:hover { border-color: rgba(94,234,212,0.4); color: var(--accent); transform: translateY(-1px); }
+
+    /* Divider */
+    .rule {
+      height: 1px;
+      background: linear-gradient(90deg, var(--border), transparent);
+      margin: 0 0 2.4rem;
+    }
+
+    /* About */
+    .about-label {
+      font-size: 0.74rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--faint);
+      font-weight: 600;
+      margin-bottom: 0.9rem;
+    }
+    .about {
+      font-size: 1.06rem;
+      color: var(--muted);
+      max-width: 58ch;
+      margin-bottom: 3rem;
+    }
+    .about b { color: var(--text); font-weight: 500; }
+
+    /* Contact */
+    .links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0.75rem;
+    }
+    .link {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.95rem 1.1rem;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--card);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.94rem;
+      font-weight: 500;
+      transition: border-color 0.25s, background 0.25s, transform 0.2s;
+    }
+    .link:hover {
+      border-color: rgba(94,234,212,0.35);
+      background: rgba(94, 234, 212, 0.05);
+      transform: translateY(-2px);
+    }
+    .link svg { width: 19px; height: 19px; flex-shrink: 0; stroke: var(--accent); }
+    .link .lbl { display: flex; flex-direction: column; line-height: 1.25; }
+    .link .lbl small { color: var(--faint); font-size: 0.74rem; font-weight: 400; }
+
+    footer {
+      margin-top: 3.5rem;
+      font-size: 0.82rem;
+      color: var(--faint);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 480px) {
+      .wrap { padding-top: 3rem; }
+      .meta { gap: 0.4rem 1rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="aura"></div>
+  <div class="grid-overlay"></div>
+
+  <main class="wrap">
+    <section class="hero">
+      <img class="avatar" src="https://avatars.githubusercontent.com/u/40164071?v=4" alt="Henrik Varmer" />
+
+      <div class="eyebrow"><span class="dot"></span> Data &amp; AI Leadership</div>
+
+      <h1>Henrik <span class="grad">Varmer</span></h1>
+
+      <p class="role">Senior Director · <b>Head of Data &amp; AI</b> at VELUX</p>
+      <p class="tagline">I build teams and ship data &amp; AI products — turning enterprise data into trusted products people actually use.</p>
+
+      <div class="meta">
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 21s-7-6.3-7-11a7 7 0 0114 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          Copenhagen, Denmark
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg>
+          Copenhagen Business School
+        </span>
       </div>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
-</div>
+      <div class="focus">
+        <span class="tag">Data Strategy &amp; Leadership</span>
+        <span class="tag">Data Mesh</span>
+        <span class="tag">Snowflake + dbt</span>
+        <span class="tag">AI &amp; GenAI Platforms</span>
+      </div>
+
+      <div class="rule"></div>
+
+      <p class="about-label">About</p>
+      <p class="about">I lead <b>Data &amp; AI at VELUX</b> — democratizing access to enterprise data and simplifying how it's used on scalable, governed platforms. My focus: empowering domains to ship trusted data products and GenAI where decisions are made, close to the business.</p>
+
+      <nav class="links" aria-label="Contact">
+        <a class="link" href="mailto:Henrik@varmer.dk">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          <span class="lbl">Email<small>Henrik@varmer.dk</small></span>
+        </a>
+        <a class="link" href="https://www.linkedin.com/in/varmer" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 014 0v4"/></svg>
+          <span class="lbl">LinkedIn<small>/in/varmer</small></span>
+        </a>
+        <a class="link" href="https://github.com/HenrikVarmer" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M9 19c-4 1.5-4-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 00-1.3-3.2 4.3 4.3 0 00-.1-3.2s-1-.3-3.4 1.3a11.5 11.5 0 00-6 0C6.3 2.3 5.3 2.6 5.3 2.6a4.3 4.3 0 00-.1 3.2A4.6 4.6 0 003.9 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+          <span class="lbl">GitHub<small>@HenrikVarmer</small></span>
+        </a>
+        <a class="link" href="https://x.com/varmer" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 4l16 16M20 4L4 20"/></svg>
+          <span class="lbl">X<small>@Varmer</small></span>
+        </a>
+      </nav>
+
+      <footer>
+        <span>© <span id="yr">2026</span> Henrik Varmer</span>
+        <span>Data &amp; AI · Copenhagen</span>
+      </footer>
+    </section>
+  </main>
+
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
