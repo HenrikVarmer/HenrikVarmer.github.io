@@ -203,11 +203,13 @@
 
     /* Contact */
     .links {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
       gap: 0.75rem;
     }
     .link {
+      flex: 1 1 0;
+      min-width: 150px;
       display: flex;
       align-items: center;
       gap: 0.7rem;
@@ -266,17 +268,6 @@
       <p class="role">Senior Director · <b>Head of Data &amp; AI</b> at VELUX</p>
       <p class="tagline">I build teams and ship data &amp; AI products — turning enterprise data into trusted products people actually use.</p>
 
-      <div class="meta">
-        <span>
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 21s-7-6.3-7-11a7 7 0 0114 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
-          Copenhagen, Denmark
-        </span>
-        <span>
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg>
-          Copenhagen Business School
-        </span>
-      </div>
-
       <div class="focus">
         <span class="tag">Data Strategy &amp; Leadership</span>
         <span class="tag">Data Mesh</span>
@@ -290,10 +281,6 @@
       <p class="about">I lead <b>Data &amp; AI at VELUX</b> — democratizing access to enterprise data and simplifying how it's used on scalable, governed platforms. My focus: empowering domains to ship trusted data products and GenAI where decisions are made, close to the business.</p>
 
       <nav class="links" aria-label="Contact">
-        <a class="link" href="mailto:Henrik@varmer.dk">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-          <span class="lbl">Email<small>Henrik@varmer.dk</small></span>
-        </a>
         <a class="link" href="https://www.linkedin.com/in/varmer" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 014 0v4"/></svg>
           <span class="lbl">LinkedIn<small>/in/varmer</small></span>
