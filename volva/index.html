@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>volva — Forecast Anything</title>
+  <meta name="description" content="Drop a date/value CSV and forecast anything, right in your browser. By Henrik Varmer." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#0a0e14; --card:rgba(255,255,255,.035); --border:rgba(255,255,255,.09);
+      --text:#e8ecf3; --muted:#8b95a7; --faint:#5c6577;
+      --accent:#5eead4; --accent-2:#7dd3fc; --glow:rgba(94,234,212,.14);
+      --danger:#fca5a5;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);
+      color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;position:relative;overflow-x:hidden}
+    .aura{position:fixed;inset:0;z-index:0;pointer-events:none;
+      background:radial-gradient(600px circle at 12% 6%,rgba(94,234,212,.11),transparent 45%),
+        radial-gradient(700px circle at 88% 14%,rgba(125,211,252,.09),transparent 50%)}
+    .wrap{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:clamp(2.5rem,8vh,5rem) 1.5rem 4rem}
+    a{color:inherit}
+
+    .top{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:2.4rem;flex-wrap:wrap}
+    .home{font-size:.85rem;color:var(--muted);text-decoration:none;display:inline-flex;align-items:center;gap:.4rem}
+    .home:hover{color:var(--accent)}
+    .eyebrow{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600}
+
+    h1{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:clamp(2.2rem,6vw,3.2rem);line-height:1.02;letter-spacing:-.015em;margin:.4rem 0 .5rem}
+    h1 .grad{background:linear-gradient(120deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .lede{color:var(--muted);font-size:1.05rem;max-width:60ch;margin-bottom:2.2rem}
+
+    /* drop zone */
+    .drop{border:1.5px dashed var(--border);border-radius:18px;padding:2.6rem 1.5rem;text-align:center;
+      background:var(--card);cursor:pointer;transition:border-color .2s,background .2s}
+    .drop:hover,.drop.over{border-color:rgba(94,234,212,.55);background:rgba(94,234,212,.05)}
+    .drop .ic{font-size:2rem;margin-bottom:.5rem}
+    .drop b{font-weight:600}
+    .drop small{display:block;color:var(--faint);font-size:.82rem;margin-top:.5rem}
+    .drop .sample{margin-top:1rem;font-size:.82rem}
+    .drop .sample a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(94,234,212,.35)}
+    input[type=file]{display:none}
+
+    .err{color:var(--danger);font-size:.9rem;margin-top:1rem;min-height:1.2em}
+
+    /* results */
+    .results{display:none;margin-top:2rem}
+    .results.show{display:block}
+    .controls{display:flex;flex-wrap:wrap;gap:1.2rem 1.6rem;align-items:center;
+      border:1px solid var(--border);border-radius:14px;padding:1.1rem 1.3rem;background:var(--card);margin-bottom:1.4rem}
+    .ctl{display:flex;flex-direction:column;gap:.3rem}
+    .ctl label{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);font-weight:600}
+    .ctl .val{font-variant-numeric:tabular-nums;font-weight:600;font-size:.95rem}
+    input[type=range]{width:220px;accent-color:var(--accent)}
+    .fname{font-size:.85rem;color:var(--muted);margin-left:auto;font-family:ui-monospace,Menlo,monospace}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;font-size:.9rem;font-weight:600;text-decoration:none;cursor:pointer;
+      padding:.7rem 1.1rem;border-radius:11px;border:1px solid var(--border);background:var(--card);color:var(--text);
+      transition:transform .2s,border-color .2s}
+    .btn:hover{transform:translateY(-2px);border-color:rgba(94,234,212,.4)}
+    .btn.primary{color:#04211d;background:linear-gradient(120deg,var(--accent),var(--accent-2));border:0}
+
+    .chartcard{border:1px solid var(--border);border-radius:16px;padding:1.1rem;background:var(--card);margin-bottom:1.4rem}
+    canvas{width:100%;height:auto;display:block}
+    .legend{display:flex;gap:1.2rem;flex-wrap:wrap;margin-top:.7rem;font-size:.8rem;color:var(--muted)}
+    .legend i{display:inline-block;width:14px;height:3px;border-radius:2px;vertical-align:middle;margin-right:.4rem}
+
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.75rem;margin-bottom:1.4rem}
+    .stat{border:1px solid var(--border);border-radius:12px;padding:.9rem 1rem;background:var(--card)}
+    .stat small{display:block;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:.25rem}
+    .stat b{font-size:1.15rem;font-weight:700;font-variant-numeric:tabular-nums}
+
+    .note{color:var(--faint);font-size:.8rem;margin-top:1.6rem;max-width:70ch}
+    footer{margin-top:3rem;color:var(--faint);font-size:.8rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+    footer a{color:var(--muted);text-decoration:none}footer a:hover{color:var(--accent)}
+    @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+  </style>
+</head>
+<body>
+  <div class="aura"></div>
+  <main class="wrap">
+    <div class="top">
+      <a class="home" href="/">← Henrik Varmer</a>
+      <a class="home" href="https://github.com/HenrikVarmer/volva" target="_blank" rel="noopener">volva on GitHub ↗</a>
+    </div>
+
+    <div class="eyebrow">volva · time-series forecasting</div>
+    <h1>Forecast <span class="grad">anything</span>.</h1>
+    <p class="lede">Drop a two-column CSV — a date and a value — and volva fits a trend-and-seasonality model
+      right here in your browser, then projects it forward. Nothing is uploaded anywhere; it all runs on your machine.</p>
+
+    <label class="drop" id="drop" for="file">
+      <div class="ic">📈</div>
+      <b>Drop a CSV here</b> — or click to choose
+      <small>Two columns: date (YYYY-MM-DD) and a numeric value. Comma, semicolon or tab separated.</small>
+      <div class="sample">No file handy? <a href="#" id="sample">Try the sample series →</a></div>
+    </label>
+    <input type="file" id="file" accept=".csv,text/csv,text/plain" />
+    <div class="err" id="err"></div>
+
+    <section class="results" id="results">
+      <div class="controls">
+        <div class="ctl">
+          <label for="horizon">Forecast horizon</label>
+          <input type="range" id="horizon" min="1" max="365" value="90" />
+        </div>
+        <div class="ctl"><label>Ahead</label><span class="val" id="hval">90 periods</span></div>
+        <button class="btn primary" id="download">↓ Download forecast (CSV)</button>
+        <span class="fname" id="fname"></span>
+      </div>
+
+      <div class="stats" id="stats"></div>
+
+      <div class="chartcard">
+        <canvas id="chart" width="1600" height="620"></canvas>
+        <div class="legend">
+          <span><i style="background:#7dd3fc"></i>History</span>
+          <span><i style="background:#5eead4"></i>Forecast</span>
+          <span><i style="background:rgba(94,234,212,.25);height:10px;border-radius:3px"></i>Uncertainty (95%)</span>
+        </div>
+      </div>
+
+      <p class="note" id="method"></p>
+    </section>
+
+    <footer>
+      <span>volva · by Henrik Varmer</span>
+      <span><a href="https://varmer.shinyapps.io/volva/" target="_blank" rel="noopener">Prophet-powered R version ↗</a></span>
+    </footer>
+  </main>
+
+<script>
+(function(){
+  "use strict";
+  const $ = s => document.querySelector(s);
+  const drop=$("#drop"), fileInput=$("#file"), err=$("#err"),
+        results=$("#results"), horizon=$("#horizon"), hval=$("#hval"),
+        canvas=$("#chart"), statsEl=$("#stats"), methodEl=$("#method"),
+        fnameEl=$("#fname"), downloadBtn=$("#download");
+  let SERIES=null, MODEL=null, FORECAST=null, UNIT="day";
+
+  // ---- CSV parsing ------------------------------------------------------
+  function detectSep(line){
+    const c=(line.match(/,/g)||[]).length, s=(line.match(/;/g)||[]).length, t=(line.match(/\t/g)||[]).length;
+    return t>=c&&t>=s?"\t":s>c?";":",";
+  }
+  function parseCSV(text){
+    const lines=text.replace(/\r/g,"").split("\n").filter(l=>l.trim().length);
+    if(lines.length<2) throw new Error("Need at least a couple of rows of data.");
+    const sep=detectSep(lines[0]);
+    const cell=l=>l.split(sep).map(x=>x.trim().replace(/^["']|["']$/g,""));
+    let start=0;
+    const first=cell(lines[0]);
+    if(isNaN(parseDate(first[0])) || isNaN(parseFloat(first[1]))) start=1; // header row
+    const rows=[];
+    for(let i=start;i<lines.length;i++){
+      const c=cell(lines[i]); if(c.length<2) continue;
+      const d=parseDate(c[0]), y=parseFloat(c[1]);
+      if(isNaN(d)||isNaN(y)) continue;
+      rows.push([d,y]);
+    }
+    if(rows.length<3) throw new Error("Couldn't read enough valid (date, value) rows. Check the format.");
+    return rows;
+  }
+  function parseDate(s){
+    if(!s) return NaN;
+    const t=Date.parse(s);
+    if(!isNaN(t)) return t;
+    const m=s.match(/^(\d{1,2})[\/.](\d{1,2})[\/.](\d{2,4})$/); // dd/mm/yyyy
+    if(m){ let[_,d,mo,y]=m; if(y.length===2)y="20"+y; return Date.parse(`${y}-${mo.padStart(2,"0")}-${d.padStart(2,"0")}`);}
+    return NaN;
+  }
+
+  const DAY=86400000;
+  function buildSeries(rows){
+    // aggregate duplicate dates (sum), sort ascending
+    const map=new Map();
+    for(const [d,y] of rows) map.set(d,(map.get(d)||0)+y);
+    const pts=[...map.entries()].map(([d,y])=>({t:+d,y})).sort((a,b)=>a.t-b.t);
+    // median spacing
+    const gaps=[]; for(let i=1;i<pts.length;i++) gaps.push(pts[i].t-pts[i-1].t);
+    gaps.sort((a,b)=>a-b);
+    const step=gaps[Math.floor(gaps.length/2)]||DAY;
+    UNIT = step>=27*DAY&&step<=32*DAY?"month" : step>=6*DAY&&step<=8*DAY?"week" : step>=360*DAY?"year":"day";
+    return {pts,step};
+  }
+
+  // ---- Forecast model: linear trend + seasonality + interval ------------
+  function fit(series){
+    const {pts,step}=series, n=pts.length;
+    const x=pts.map((_,i)=>i), y=pts.map(p=>p.y);
+    // linear least squares trend on index
+    const mx=mean(x), my=mean(y);
+    let sxy=0,sxx=0; for(let i=0;i<n;i++){sxy+=(x[i]-mx)*(y[i]-my);sxx+=(x[i]-mx)**2;}
+    const slope=sxx?sxy/sxx:0, intercept=my-slope*mx;
+    const trend=i=>intercept+slope*i;
+    // seasonal indices (additive) — weekly if daily data, else monthly-by-index cycle
+    let period=0;
+    if(UNIT==="day") period=7; else if(UNIT==="month") period=12;
+    const seas=new Array(period).fill(0), cnt=new Array(period).fill(0);
+    if(period){
+      for(let i=0;i<n;i++){ const k=i%period; seas[k]+=y[i]-trend(i); cnt[k]++; }
+      for(let k=0;k<period;k++) seas[k]= cnt[k]?seas[k]/cnt[k]:0;
+      const sm=mean(seas); for(let k=0;k<period;k++) seas[k]-=sm; // center
+    }
+    const seasonal=i=>period?seas[((i%period)+period)%period]:0;
+    // residual sd
+    let ss=0; for(let i=0;i<n;i++){const e=y[i]-trend(i)-seasonal(i);ss+=e*e;}
+    const sigma=Math.sqrt(ss/Math.max(1,n-2));
+    return {trend,seasonal,sigma,n,slope,step,lastT:pts[n-1].t,period};
+  }
+  function forecast(model,h){
+    const out=[];
+    for(let j=1;j<=h;j++){
+      const i=model.n-1+j;
+      const yhat=model.trend(i)+model.seasonal(i);
+      const band=1.96*model.sigma*Math.sqrt(1+j/model.n);
+      out.push({t:model.lastT+j*model.step, yhat, lo:yhat-band, hi:yhat+band});
+    }
+    return out;
+  }
+  const mean=a=>a.reduce((s,v)=>s+v,0)/a.length;
+
+  // ---- Rendering --------------------------------------------------------
+  function run(){
+    if(!SERIES) return;
+    MODEL=fit(SERIES);
+    const h=+horizon.value;
+    FORECAST=forecast(MODEL,h);
+    hval.textContent=`${h} ${UNIT}${h>1?"s":""}`;
+    draw(); renderStats();
+    methodEl.textContent=`Model: linear trend${MODEL.period?` + ${UNIT==="day"?"weekly":"seasonal"} seasonality`:""}, `+
+      `with a 95% uncertainty band from in-sample residuals (σ ≈ ${fmt(MODEL.sigma)}). `+
+      `Detected ${UNIT}-spaced data, ${MODEL.n} points. Runs entirely in your browser — a lightweight stand-in for the Prophet-powered R app.`;
+  }
+  function renderStats(){
+    const last=SERIES.pts[SERIES.pts.length-1], end=FORECAST[FORECAST.length-1];
+    const chg=((end.yhat-last.y)/Math.abs(last.y||1))*100;
+    statsEl.innerHTML=[
+      ["Data points",SERIES.pts.length],
+      ["Last value",fmt(last.y)],
+      [`Forecast (+${FORECAST.length}${UNIT[0]})`,fmt(end.yhat)],
+      ["Projected change",(chg>=0?"+":"")+chg.toFixed(1)+"%"]
+    ].map(([k,v])=>`<div class="stat"><small>${k}</small><b>${v}</b></div>`).join("");
+  }
+  function fmt(v){ if(!isFinite(v))return"—"; const a=Math.abs(v);
+    return a>=1e6?(v/1e6).toFixed(2)+"M":a>=1e3?(v/1e3).toFixed(1)+"k":a>=100?v.toFixed(0):v.toFixed(2); }
+
+  function draw(){
+    const ctx=canvas.getContext("2d"), W=canvas.width, H=canvas.height;
+    const dpr=1; ctx.clearRect(0,0,W,H);
+    const hist=SERIES.pts, fc=FORECAST;
+    const allT=[...hist.map(p=>p.t),...fc.map(p=>p.t)];
+    const allY=[...hist.map(p=>p.y),...fc.map(p=>p.hi),...fc.map(p=>p.lo)];
+    const tMin=Math.min(...allT),tMax=Math.max(...allT);
+    let yMin=Math.min(...allY),yMax=Math.max(...allY);
+    const pad=(yMax-yMin)*.08||1; yMin-=pad; yMax+=pad;
+    const L=64,R=20,T=20,B=46, pw=W-L-R, ph=H-T-B;
+    const X=t=>L+(t-tMin)/(tMax-tMin||1)*pw;
+    const Y=y=>T+(1-(y-yMin)/(yMax-yMin||1))*ph;
+
+    // grid + y labels
+    ctx.strokeStyle="rgba(255,255,255,.07)";ctx.fillStyle="#5c6577";ctx.font="20px Inter,sans-serif";ctx.lineWidth=1;
+    for(let g=0;g<=4;g++){ const yy=T+ph*g/4, val=yMax-(yMax-yMin)*g/4;
+      ctx.beginPath();ctx.moveTo(L,yy);ctx.lineTo(W-R,yy);ctx.stroke();
+      ctx.fillText(fmt(val),8,yy+6); }
+    // x labels (start, split, end)
+    ctx.textAlign="center";
+    [tMin,hist[hist.length-1].t,tMax].forEach(t=>{ ctx.fillText(new Date(t).toISOString().slice(0,10),X(t),H-16); });
+    ctx.textAlign="left";
+
+    // uncertainty band
+    ctx.beginPath();
+    fc.forEach((p,i)=>{const x=X(p.t),y=Y(p.hi); i?ctx.lineTo(x,y):ctx.moveTo(x,y);});
+    for(let i=fc.length-1;i>=0;i--){const p=fc[i];ctx.lineTo(X(p.t),Y(p.lo));}
+    ctx.closePath();ctx.fillStyle="rgba(94,234,212,.14)";ctx.fill();
+
+    // history line
+    line(ctx,hist.map(p=>[X(p.t),Y(p.y)]),"#7dd3fc",2.5);
+    // forecast line (start from last hist point)
+    const last=hist[hist.length-1];
+    line(ctx,[[X(last.t),Y(last.y)],...fc.map(p=>[X(p.t),Y(p.yhat)])],"#5eead4",2.5);
+    // divider
+    ctx.strokeStyle="rgba(255,255,255,.18)";ctx.setLineDash([5,5]);
+    ctx.beginPath();ctx.moveTo(X(last.t),T);ctx.lineTo(X(last.t),T+ph);ctx.stroke();ctx.setLineDash([]);
+    // endpoint dot
+    const end=fc[fc.length-1];ctx.fillStyle="#5eead4";ctx.beginPath();ctx.arc(X(end.t),Y(end.yhat),4,0,7);ctx.fill();
+  }
+  function line(ctx,pts,color,w){ctx.strokeStyle=color;ctx.lineWidth=w;ctx.lineJoin="round";ctx.beginPath();
+    pts.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));ctx.stroke();}
+
+  // ---- File handling ----------------------------------------------------
+  function load(text,name){
+    try{
+      err.textContent="";
+      const rows=parseCSV(text);
+      SERIES=buildSeries(rows);
+      horizon.max = UNIT==="day"?730:UNIT==="week"?104:UNIT==="month"?36:20;
+      horizon.value = Math.min(+horizon.value, +horizon.max);
+      fnameEl.textContent=name||"";
+      results.classList.add("show");
+      run();
+      results.scrollIntoView({behavior:"smooth",block:"nearest"});
+    }catch(e){ err.textContent=e.message; results.classList.remove("show"); }
+  }
+  function readFile(f){ if(!f)return; const r=new FileReader(); r.onload=e=>load(e.target.result,f.name); r.readAsText(f); }
+
+  drop.addEventListener("dragover",e=>{e.preventDefault();drop.classList.add("over");});
+  drop.addEventListener("dragleave",()=>drop.classList.remove("over"));
+  drop.addEventListener("drop",e=>{e.preventDefault();drop.classList.remove("over");readFile(e.dataTransfer.files[0]);});
+  fileInput.addEventListener("change",e=>readFile(e.target.files[0]));
+  horizon.addEventListener("input",run);
+
+  // sample series: trend + weekly seasonality + noise (deterministic)
+  $("#sample").addEventListener("click",e=>{
+    e.preventDefault();
+    let s="ds,y\n"; const start=Date.parse("2023-01-01");
+    for(let i=0;i<540;i++){
+      const d=new Date(start+i*DAY).toISOString().slice(0,10);
+      const wk=[0,8,12,10,14,26,20][i%7];
+      const v=200+i*0.9+wk+18*Math.sin(i/30)+((i*7)%11-5);
+      s+=`${d},${Math.round(v)}\n`;
+    }
+    load(s,"sample.csv");
+  });
+
+  downloadBtn.addEventListener("click",()=>{
+    if(!FORECAST)return;
+    let csv="ds,yhat,yhat_lower,yhat_upper\n";
+    for(const p of FORECAST) csv+=`${new Date(p.t).toISOString().slice(0,10)},${p.yhat.toFixed(4)},${p.lo.toFixed(4)},${p.hi.toFixed(4)}\n`;
+    const url=URL.createObjectURL(new Blob([csv],{type:"text/csv"}));
+    const a=document.createElement("a");a.href=url;a.download="volva-forecast.csv";a.click();URL.revokeObjectURL(url);
+  });
+})();
+</script>
+</body>
+</html>
