@@ -136,6 +136,24 @@
     .speaking .topics span { font-size: 0.76rem; color: var(--faint); border: 1px solid var(--border); border-radius: 999px; padding: 0.3rem 0.7rem; }
     @media (max-width: 620px) { .speaking { grid-template-columns: 1fr; } }
 
+    /* Open-source work */
+    .work-head { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 1.5rem; letter-spacing: -0.01em; margin-bottom: 1.2rem; }
+    .worklist { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 3rem; }
+    .repo {
+      display: flex; flex-direction: column; gap: 0.4rem; text-decoration: none; color: var(--text);
+      border: 1px solid var(--border); border-radius: 14px; padding: 1.05rem 1.15rem; background: var(--card);
+      transition: border-color 0.25s, transform 0.2s, background 0.25s;
+    }
+    .repo:hover { border-color: rgba(94,234,212,0.4); transform: translateY(-2px); background: rgba(94,234,212,0.04); }
+    .repo .rtop { display: flex; align-items: center; gap: 0.5rem; }
+    .repo h3 { font-size: 1.02rem; font-weight: 600; letter-spacing: -0.01em; }
+    .repo .lang { margin-left: auto; font-size: 0.72rem; color: var(--faint); display: inline-flex; align-items: center; gap: 0.4rem; white-space: nowrap; }
+    .repo .lang i { width: 8px; height: 8px; border-radius: 50%; }
+    .i-py { background: #7dd3fc; } .i-r { background: #5eead4; } .i-ai { background: #c4b5fd; }
+    .repo p { font-size: 0.86rem; color: var(--muted); }
+    .repo.feat { grid-column: span 2; background: linear-gradient(135deg, rgba(94,234,212,0.07), var(--card)); }
+    @media (max-width: 620px) { .worklist { grid-template-columns: 1fr; } .repo.feat { grid-column: span 1; } }
+
     .about-label { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--faint); font-weight: 600; margin-bottom: 0.9rem; }
     .about { font-size: 1.05rem; color: var(--muted); max-width: 58ch; margin-bottom: 3rem; }
     .about b { color: var(--text); font-weight: 500; }
@@ -212,6 +230,36 @@
           <div class="topics"><span>Data &amp; AI strategy</span><span>Building data teams</span><span>Applied ML &amp; GenAI</span></div>
         </div>
         <a class="cta primary" href="mailto:henrik@varmer.dk?subject=Speaking%20enquiry">Book a talk</a>
+      </div>
+
+      <!-- Open-source work -->
+      <p class="section-label">Open Source</p>
+      <h2 class="work-head">Built in the open</h2>
+      <div class="worklist">
+        <a class="repo feat" href="https://github.com/HenrikVarmer/textRec" target="_blank" rel="noopener">
+          <div class="rtop"><h3>textRec</h3><span class="lang"><i class="i-py"></i>Python · R</span></div>
+          <p>Recommends documents that are relevant but genuinely new — an LDA topic model plus Jensen–Shannon divergence, with a k-nearest-neighbour cold-start engine.</p>
+        </a>
+        <a class="repo" href="https://github.com/HenrikVarmer/aruleRec" target="_blank" rel="noopener">
+          <div class="rtop"><h3>aruleRec</h3><span class="lang"><i class="i-r"></i>R</span></div>
+          <p>Automatic recommendations from mined association rules.</p>
+        </a>
+        <a class="repo" href="https://github.com/HenrikVarmer/LeadSearch" target="_blank" rel="noopener">
+          <div class="rtop"><h3>LeadSearch</h3><span class="lang"><i class="i-r"></i>R</span></div>
+          <p>Turns names &amp; emails into likely job titles, workplaces and LinkedIn profiles via search APIs.</p>
+        </a>
+        <a class="repo" href="https://github.com/HenrikVarmer/volva" target="_blank" rel="noopener">
+          <div class="rtop"><h3>volva</h3><span class="lang"><i class="i-r"></i>R · Shiny</span></div>
+          <p>Forecasts values from any date/value CSV — point it at a file and go.</p>
+        </a>
+        <a class="repo" href="https://github.com/HenrikVarmer/GeoSpatialCopenhagen" target="_blank" rel="noopener">
+          <div class="rtop"><h3>GeoSpatialCopenhagen</h3><span class="lang"><i class="i-r"></i>R</span></div>
+          <p>Copenhagen mapped in 3D from open geodata.</p>
+        </a>
+        <a class="repo" href="https://github.com/HenrikVarmer/kreditdata_ml" target="_blank" rel="noopener">
+          <div class="rtop"><h3>kreditdata_ml</h3><span class="lang"><i class="i-py"></i>Python</span></div>
+          <p>Machine-learning modelling and evaluation on credit data.</p>
+        </a>
       </div>
 
       <nav class="links" aria-label="Contact">
