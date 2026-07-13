@@ -63,7 +63,9 @@
     }
 
     /* Hero — portrait to the LEFT of the name */
-    .hero { display: flex; flex-direction: column; align-items: flex-start; }
+    .hero { display: flex; flex-direction: column; align-items: stretch; }
+    /* hero intro keeps its natural width; sections below stretch to the column */
+    .identity, .focus, .role, .tagline, .actions { align-self: flex-start; }
     .identity { display: flex; align-items: center; gap: 1.35rem; margin-bottom: 1.1rem; }
     .avatar {
       width: 104px; height: 104px; border-radius: 50%; object-fit: cover; flex: 0 0 auto;
