@@ -64,7 +64,7 @@
 
     /* Hero — portrait to the LEFT of the name */
     .hero { display: flex; flex-direction: column; align-items: flex-start; }
-    .identity { display: flex; align-items: center; gap: 1.35rem; margin-bottom: 1.5rem; }
+    .identity { display: flex; align-items: center; gap: 1.35rem; margin-bottom: 1.1rem; }
     .avatar {
       width: 104px; height: 104px; border-radius: 50%; object-fit: cover; flex: 0 0 auto;
       border: 1px solid var(--border);
@@ -112,7 +112,7 @@
     .cta.ghost:hover { transform: translateY(-2px); border-color: rgba(94,234,212,0.4); color: var(--accent); }
     .cta svg { width: 17px; height: 17px; stroke: currentColor; fill: none; stroke-width: 1.9; }
 
-    .focus { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 3rem; }
+    .focus { display: flex; flex-wrap: wrap; gap: 0.55rem; margin: 0 0 1.4rem; }
     .tag {
       font-size: 0.83rem; font-weight: 500; color: var(--text);
       padding: 0.5rem 0.95rem; border: 1px solid var(--border); border-radius: 999px;
@@ -197,6 +197,13 @@
         </div>
       </div>
 
+      <div class="focus">
+        <span class="tag">Data Strategy &amp; Leadership</span>
+        <span class="tag">Data Mesh</span>
+        <span class="tag">Snowflake + dbt</span>
+        <span class="tag">AI &amp; GenAI Platforms</span>
+      </div>
+
       <p class="role">Senior Director · <b>Head of Data &amp; AI</b> at VELUX</p>
       <p class="tagline">I lead <b>Data &amp; AI at VELUX</b> — democratizing access to enterprise data and simplifying how it's used on scalable, governed platforms. My focus: empowering domains to ship trusted data products and GenAI where decisions are made, close to the business.</p>
 
@@ -211,26 +218,7 @@
         </a>
       </div>
 
-      <div class="focus">
-        <span class="tag">Data Strategy &amp; Leadership</span>
-        <span class="tag">Data Mesh</span>
-        <span class="tag">Snowflake + dbt</span>
-        <span class="tag">AI &amp; GenAI Platforms</span>
-      </div>
-
       <div class="rule"></div>
-
-      <!-- Speaking -->
-      <p class="section-label">Speaking</p>
-      <div class="speaking">
-        <div>
-          <h2>On stage: data &amp; AI, in plain language</h2>
-          <p>Keynotes, talks and panels for teams, leaders and conferences — from recommender systems to what
-            "AI strategy" really means once you open the terminal. Practical, honest, pitched for the room.</p>
-          <div class="topics"><span>Data &amp; AI strategy</span><span>Building data teams</span><span>Applied ML &amp; GenAI</span></div>
-        </div>
-        <a class="cta primary" href="mailto:henrik@varmer.dk?subject=Speaking%20enquiry">Book a talk</a>
-      </div>
 
       <!-- Open-source work -->
       <p class="section-label">Open Source</p>
@@ -256,6 +244,18 @@
           <div class="rtop"><h3>GeoSpatialCopenhagen</h3><span class="lang"><i class="i-r"></i>R</span></div>
           <p>Copenhagen mapped in 3D from open geodata.</p>
         </a>
+      </div>
+
+      <!-- Speaking -->
+      <p class="section-label">Speaking</p>
+      <div class="speaking">
+        <div>
+          <h2>On stage: data &amp; AI, in plain language</h2>
+          <p>Keynotes, talks and panels for teams, leaders and conferences — from recommender systems to what
+            "AI strategy" really means once you open the terminal. Practical, honest, pitched for the room.</p>
+          <div class="topics"><span>Data &amp; AI strategy</span><span>Building data teams</span><span>Applied ML &amp; GenAI</span></div>
+        </div>
+        <a class="cta primary" href="mailto:henrik@varmer.dk?subject=Speaking%20enquiry">Book a talk</a>
       </div>
 
       <nav class="links" aria-label="Contact">
