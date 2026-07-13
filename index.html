@@ -64,8 +64,8 @@
 
     /* Hero — portrait to the LEFT of the name */
     .hero { display: flex; flex-direction: column; align-items: stretch; }
-    /* hero intro keeps its natural width; sections below stretch to the column */
-    .identity, .focus, .role, .tagline, .actions { align-self: flex-start; }
+    /* avatar row + CTA buttons keep their natural width; everything else fills the column */
+    .identity, .actions { align-self: flex-start; }
     .identity { display: flex; align-items: center; gap: 1.35rem; margin-bottom: 1.1rem; }
     .avatar {
       width: 104px; height: 104px; border-radius: 50%; object-fit: cover; flex: 0 0 auto;
@@ -94,7 +94,7 @@
 
     .role { font-size: clamp(1.05rem, 2.6vw, 1.26rem); color: var(--text); font-weight: 500; margin-bottom: 0.35rem; }
     .role b { color: var(--accent-2); font-weight: 600; }
-    .tagline { font-size: 1.05rem; color: var(--muted); max-width: 58ch; margin-bottom: 1.5rem; }
+    .tagline { font-size: 1.05rem; color: var(--muted); margin-bottom: 1.5rem; }
     .tagline b { color: var(--text); font-weight: 600; }
 
     /* Primary actions */
@@ -114,7 +114,7 @@
     .cta.ghost:hover { transform: translateY(-2px); border-color: rgba(94,234,212,0.4); color: var(--accent); }
     .cta svg { width: 17px; height: 17px; stroke: currentColor; fill: none; stroke-width: 1.9; }
 
-    .focus { display: flex; flex-wrap: wrap; gap: 0.55rem; margin: 0 0 1.4rem; }
+    .focus { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.55rem; margin: 0 0 1.4rem; }
     .tag {
       font-size: 0.83rem; font-weight: 500; color: var(--text);
       padding: 0.5rem 0.95rem; border: 1px solid var(--border); border-radius: 999px;
@@ -122,24 +122,25 @@
       transition: border-color 0.25s, color 0.25s, transform 0.25s;
     }
     .tag:hover { border-color: rgba(94,234,212,0.4); color: var(--accent); transform: translateY(-1px); }
+    /* tags distribute across the full row only when they fit on one line (desktop) */
+    @media (max-width: 780px) { .focus { justify-content: flex-start; } }
 
     .rule { height: 1px; background: linear-gradient(90deg, var(--border), transparent); margin: 0 0 2.4rem; }
 
     /* Speaking */
-    .section-label { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--faint); font-weight: 600; margin-bottom: 0.9rem; }
+    .section-label { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--faint); font-weight: 600; margin-bottom: 1.3rem; }
     .speaking {
       display: grid; grid-template-columns: 1fr auto; gap: 1.5rem; align-items: center;
       border: 1px solid var(--border); border-radius: 18px; padding: 1.5rem 1.6rem;
       background: linear-gradient(135deg, rgba(94,234,212,0.06), var(--card)); margin-bottom: 3rem;
     }
-    .speaking h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 1.4rem; letter-spacing: -0.01em; margin-bottom: 0.4rem; }
     .speaking p { color: var(--muted); font-size: 0.98rem; max-width: 46ch; }
     .speaking .topics { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.9rem; }
     .speaking .topics span { font-size: 0.76rem; color: var(--faint); border: 1px solid var(--border); border-radius: 999px; padding: 0.3rem 0.7rem; }
     @media (max-width: 620px) { .speaking { grid-template-columns: 1fr; } }
 
     /* Open-source work */
-    .work-head { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 1.5rem; letter-spacing: -0.01em; margin-bottom: 1.2rem; }
+    .work-head { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 1.5rem; letter-spacing: -0.01em; margin-bottom: 0.3rem; }
     .worklist { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 3rem; }
     .repo {
       display: flex; flex-direction: column; gap: 0.4rem; text-decoration: none; color: var(--text);
@@ -223,8 +224,8 @@
       <div class="rule"></div>
 
       <!-- Open-source work -->
-      <p class="section-label">Open Source</p>
       <h2 class="work-head">Built in the open</h2>
+      <p class="section-label">Open Source</p>
       <div class="worklist">
         <a class="repo feat" href="https://github.com/HenrikVarmer/textrec" target="_blank" rel="noopener">
           <div class="rtop"><h3>textrec</h3><span class="lang"><i class="i-py"></i>Python</span></div>
@@ -249,10 +250,10 @@
       </div>
 
       <!-- Speaking -->
+      <h2 class="work-head">On stage: data &amp; AI, in plain language</h2>
       <p class="section-label">Speaking</p>
       <div class="speaking">
         <div>
-          <h2>On stage: data &amp; AI, in plain language</h2>
           <p>Keynotes, talks and panels for teams, leaders and conferences — from recommender systems to what
             "AI strategy" really means once you open the terminal. Practical, honest, pitched for the room.</p>
           <div class="topics"><span>Data &amp; AI strategy</span><span>Building data teams</span><span>Applied ML &amp; GenAI</span></div>
