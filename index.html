@@ -129,6 +129,10 @@
 
     /* Speaking */
     .section-label { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--faint); font-weight: 600; margin-bottom: 1.3rem; }
+    /* heading + kicker share one line on desktop; the label stacks under the heading on mobile */
+    .section-title { display: flex; align-items: baseline; gap: 0.7rem; margin-bottom: 1.3rem; }
+    .section-title .work-head, .section-title .section-label { margin-bottom: 0; }
+    @media (max-width: 700px) { .section-title { flex-direction: column; align-items: stretch; gap: 0.3rem; } }
     .speaking {
       display: grid; grid-template-columns: 1fr auto; gap: 1.5rem; align-items: center;
       border: 1px solid var(--border); border-radius: 18px; padding: 1.5rem 1.6rem;
@@ -224,8 +228,10 @@
       <div class="rule"></div>
 
       <!-- Open-source work -->
-      <h2 class="work-head">Built in the open</h2>
-      <p class="section-label">Open Source</p>
+      <div class="section-title">
+        <h2 class="work-head">Built in the open</h2>
+        <p class="section-label">Open Source</p>
+      </div>
       <div class="worklist">
         <a class="repo feat" href="https://github.com/HenrikVarmer/textrec" target="_blank" rel="noopener">
           <div class="rtop"><h3>textrec</h3><span class="lang"><i class="i-py"></i>Python</span></div>
@@ -250,8 +256,10 @@
       </div>
 
       <!-- Speaking -->
-      <h2 class="work-head">On stage: data &amp; AI, in plain language</h2>
-      <p class="section-label">Speaking</p>
+      <div class="section-title">
+        <h2 class="work-head">On stage: data &amp; AI, in plain language</h2>
+        <p class="section-label">Speaking</p>
+      </div>
       <div class="speaking">
         <div>
           <p>Keynotes, talks and panels for teams, leaders and conferences — from recommender systems to what
