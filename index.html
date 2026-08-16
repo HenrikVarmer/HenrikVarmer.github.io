@@ -72,6 +72,7 @@
   a.cell:hover, button.cell:hover, .talk-tile:hover, .jury-tile:hover, .cta-tile:hover {
     border-color: var(--acc-border); background: var(--acc-wash); transform: translateY(-3px);
   }
+  .clickable { cursor: pointer; }
   .w2 { grid-column: span 2; } .w3 { grid-column: span 3; }
   .id-tile h1 { font-size: clamp(2.4rem, 5.5vw, 3.8rem); font-weight: 310; line-height: 1; letter-spacing: -0.02em; }
   .id-tile h1 em { font-style: italic; font-weight: 360; color: var(--acc-ink); }
@@ -261,8 +262,9 @@
   const esc = s => s || '';
   const chiprow = t => `<p class="chiprow"><span class="chip${t.status === 'upcoming' ? ' up' : ''}">${t.badge}</span><span class="when">${t.when}</span></p>`;
   const linkrow = t => t.links.length ? `<div class="tlinks">${t.links.map(l => `<a href="${l.url}">${l.label} ↗</a>`).join('')}</div>` : '';
-  const tile = t => `<article class="cell talk-tile">${t.image ? `<img class="shot" src="${t.image}" alt="${esc(t.alt)}" loading="lazy" />` : ''}
-    ${chiprow(t)}<h3>${t.title_html}</h3><p class="meta">${t.meta_html}</p>${linkrow(t)}</article>`;
+  const primary = t => (t.links && t.links.length) ? t.links[0].url : null;
+  const tile = t => { const p = primary(t); return `<article class="cell talk-tile${p ? ' clickable' : ''}"${p ? ` data-href="${p}" tabindex="0" role="link"` : ''}>${t.image ? `<img class="shot" src="${t.image}" alt="${esc(t.alt)}" loading="lazy" />` : ''}
+    ${chiprow(t)}<h3>${t.title_html}</h3><p class="meta">${t.meta_html}</p>${linkrow(t)}</article>`; };
 
   const up = data.talks.find(t => t.status === 'upcoming');
   const held = data.talks.filter(t => t.status !== 'upcoming');
@@ -270,13 +272,15 @@
   if (up) {
     feat.innerHTML = `<div class="fbody">${chiprow(up)}<h3>${up.title_html}</h3><p class="meta">${up.meta_html}</p>${linkrow(up)}</div>` +
       (up.image ? `<img class="poster" src="${up.image}" alt="${esc(up.alt)}" />` : '');
+    const p = primary(up);
+    if (p) { feat.dataset.href = p; feat.classList.add('clickable'); feat.setAttribute('tabindex', '0'); feat.setAttribute('role', 'link'); }
   } else {
     feat.innerHTML = `<div class="fbody"><p class="chiprow"><span class="chip">Next</span></p><h3>Nothing announced right now</h3><p class="meta">New talks appear here as they are confirmed.</p></div>`;
   }
   const holder = document.createElement('div');
   const tiles = held.map(t => { holder.innerHTML = tile(t); return holder.firstElementChild; });
   document.getElementById('juryGrid').innerHTML = data.jury.map(j =>
-    `<div class="cell jury-tile"><p class="chiprow"><span class="chip">${j.year}</span></p><h3>Danish Digital Award</h3><p class="meta">${j.detail}</p></div>`).join('');
+    `<a class="cell jury-tile" href="https://danishdigitalaward.dk/"><p class="chiprow"><span class="chip">${j.year}</span></p><h3>Danish Digital Award</h3><p class="meta">${j.detail}</p></a>`).join('');
 
   const recent = document.getElementById('recentTalks');
   const more = document.getElementById('moreTalks');
@@ -297,6 +301,12 @@
   layout();
   let rto;
   addEventListener('resize', () => { clearTimeout(rto); rto = setTimeout(layout, 120); });
+
+  // whole-tile navigation; inner links keep working
+  document.querySelectorAll('[data-href]').forEach(el => {
+    el.addEventListener('click', e => { if (!e.target.closest('a')) location.href = el.dataset.href; });
+    el.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.target.closest('a')) location.href = el.dataset.href; });
+  });
 
   btn.addEventListener('click', () => {
     const isOpen = !more.hasAttribute('hidden');
