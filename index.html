@@ -360,11 +360,13 @@ document.getElementById('yr').textContent = new Date().getFullYear();
     const fx = j => W * splitX + (j / M) * W * (1 - splitX);
     const py = v => H * (0.96 - ((v - lo) / (hi - lo)) * 0.92);
 
-    ctx.strokeStyle = 'rgba(' + colors.grid + ', 0.14)';
     ctx.lineWidth = 1;
     for (let g = 1; g < 4; g++) {
       const y = (H / 4) * g;
-      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+      ctx.strokeStyle = 'rgba(' + colors.grid + ', 0.14)';
+      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W * splitX, y); ctx.stroke();
+      ctx.strokeStyle = 'rgba(' + colors.grid + ', 0.05)';
+      ctx.beginPath(); ctx.moveTo(W * splitX, y); ctx.lineTo(W, y); ctx.stroke();
     }
 
     const histP = Math.min(1, p / 0.55);
