@@ -376,10 +376,10 @@ document.getElementById('yr').textContent = new Date().getFullYear();
     for (let g = 1; g < 4; g++) {
       const y = (H / 4) * g;
       const gl = ctx.createLinearGradient(0, 0, W, 0);
-      gl.addColorStop(0, 'rgba(' + colors.grid + ', 0.14)');
+      gl.addColorStop(0, 'rgba(' + colors.grid + ', 0.05)');
+      gl.addColorStop(Math.max(splitX - 0.14, 0), 'rgba(' + colors.grid + ', 0.05)');
       gl.addColorStop(splitX, 'rgba(' + colors.grid + ', 0.14)');
-      gl.addColorStop(Math.min(splitX + 0.14, 1), 'rgba(' + colors.grid + ', 0.05)');
-      gl.addColorStop(1, 'rgba(' + colors.grid + ', 0.05)');
+      gl.addColorStop(1, 'rgba(' + colors.grid + ', 0.14)');
       ctx.strokeStyle = gl;
       ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
     }
