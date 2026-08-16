@@ -116,16 +116,12 @@
       "meta_html": "Solita Summit · generative AI use cases from Lederne, on a bill with Google and Kela.",
       "links": [
         {
-          "label": "Watch",
-          "url": "https://www.youtube.com/watch?v=Fr0Wq9y3fsY"
-        },
-        {
           "label": "Announcement",
           "url": "https://www.linkedin.com/posts/varmer_solita-summit-beyond-gen-ai-hype-foundations-activity-7108361270222827524-PTUk"
         }
       ],
       "image": "assets/talks/solita.jpg",
-      "alt": "Solita Summit talk recording"
+      "alt": "Solita Summit talk"
     },
     {
       "id": "version2-analytics-2023",
