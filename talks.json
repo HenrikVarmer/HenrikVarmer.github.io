@@ -1,0 +1,183 @@
+{
+  "talks": [
+    {
+      "id": "conversational-bi-inspari-2026",
+      "status": "upcoming",
+      "badge": "Upcoming",
+      "when": "Sep 2, 2026",
+      "title_html": "Conversational BI <em>i praksis</em> — anvend AI til at tale med dine data",
+      "meta_html": "Inspari morning briefing · Kgs. Lyngby · the VELUX customer case at 10:00 — Conversational BI from prototypes to production.",
+      "links": [
+        {
+          "label": "Sign up",
+          "url": "https://inspari.dk/conversational-bi-briefing#sign-up"
+        },
+        {
+          "label": "Event",
+          "url": "https://inspari.dk/conversational-bi-briefing"
+        }
+      ],
+      "image": "assets/talks/convbi.jpg",
+      "alt": "Conversational BI i praksis event poster"
+    },
+    {
+      "id": "industrial-ai-manufacturing-2026",
+      "status": "held",
+      "badge": "Talk",
+      "when": "Jun 2026",
+      "title_html": "Industrial AI in Manufacturing",
+      "meta_html": "VELUX Østbirk · data &amp; AI in a manufacturing setting — machine learning, supply-chain intelligence and industrial IoT, from pilots to the shop floor. On a bill with NVIDIA, JLI Vision and Siemens.",
+      "links": [
+        {
+          "label": "Event",
+          "url": "https://www.danskindustri.dk/arrangementer/soeg/arrangementer/medlemsforeninger/dau/2026/industrial-ai-in-manufacturing/"
+        }
+      ],
+      "image": "assets/talks/industrial.jpg",
+      "alt": "The VELUX site in Østbirk"
+    },
+    {
+      "id": "ai-data-day-2026",
+      "status": "held",
+      "badge": "Talk",
+      "when": "May 2026",
+      "title_html": "Talk to your production data — <em>in real time with AI</em>",
+      "meta_html": "AI &amp; Data Day · Villa Copenhagen · how VELUX ships trusted data products and GenAI on a governed self-serve platform, Snowflake + dbt underneath.",
+      "links": [
+        {
+          "label": "Program",
+          "url": "https://dataday.dk/program"
+        }
+      ],
+      "image": "assets/talks/dataday.png",
+      "alt": "Speaker card, AI & Data Day 2026"
+    },
+    {
+      "id": "snowflake-data-for-breakfast-2026",
+      "status": "held",
+      "badge": "Talk",
+      "when": "Mar 2026",
+      "title_html": "From Data Foundation to <em>AI in Production</em>",
+      "meta_html": "Snowflake Data for Breakfast · Kosmopol, Copenhagen · the VELUX journey — AI only creates value once the fundamentals are in place.",
+      "links": [],
+      "image": "assets/talks/dfb.jpg",
+      "alt": "On stage at Snowflake Data for Breakfast, Copenhagen"
+    },
+    {
+      "id": "snowflake-world-tour-stockholm-2025",
+      "status": "held",
+      "badge": "Talk",
+      "when": "Oct 2025",
+      "title_html": "Snowflake World Tour, Stockholm",
+      "meta_html": "Data Mesh architecture at VELUX and scaling the data &amp; AI platform globally — presented with Thomas Nicolet.",
+      "links": [],
+      "image": "assets/talks/swt.jpg",
+      "alt": "Snowflake World Tour venue, Stockholm"
+    },
+    {
+      "id": "ejendomdanmark-administratorkonference-2024",
+      "status": "held",
+      "badge": "Talk",
+      "when": "2024",
+      "title_html": "EjendomDanmark Administratorkonference",
+      "meta_html": "How Lederne works with AI, followed by a panel with Jannis Littmann (Newsec).",
+      "links": [],
+      "image": "assets/talks/ejendom.jpg",
+      "alt": "On stage at EjendomDanmark Administratorkonference 2024"
+    },
+    {
+      "id": "copenhagen-dbt-meetup-2024",
+      "status": "held",
+      "badge": "Talk",
+      "when": "2024",
+      "title_html": "Copenhagen dbt meetup",
+      "meta_html": "Hosted at Lederne for 90 data people — presented alongside Jonatan Larsen Edry.",
+      "links": [],
+      "image": "assets/talks/dbt.jpg",
+      "alt": "Copenhagen dbt meetup hosted at Lederne"
+    },
+    {
+      "id": "evo-dk-128-podcast-2024",
+      "status": "held",
+      "badge": "Podcast",
+      "when": "2024",
+      "title_html": "Your guide to effective <em>data-driven decision making</em>",
+      "meta_html": "Evo DK, episode 128 · Evolution Exchange Denmark · panel with Devoteam Data Driven and Pleo on how data drives strategic decisions.",
+      "links": [],
+      "image": null,
+      "alt": ""
+    },
+    {
+      "id": "solita-summit-2023",
+      "status": "held",
+      "badge": "Talk",
+      "when": "Oct 2023",
+      "title_html": "AI in practice — <em>real world examples and how we got there</em>",
+      "meta_html": "Solita Summit · generative AI use cases from Lederne, on a bill with Google and Kela.",
+      "links": [
+        {
+          "label": "Watch",
+          "url": "https://www.youtube.com/watch?v=Fr0Wq9y3fsY"
+        },
+        {
+          "label": "Announcement",
+          "url": "https://www.linkedin.com/posts/varmer_solita-summit-beyond-gen-ai-hype-foundations-activity-7108361270222827524-PTUk"
+        }
+      ],
+      "image": "assets/talks/solita.jpg",
+      "alt": "Solita Summit talk recording"
+    },
+    {
+      "id": "version2-analytics-2023",
+      "status": "held",
+      "badge": "Talk",
+      "when": "2023",
+      "title_html": "Version2 Analytics conference",
+      "meta_html": "The value Data &amp; Analytics creates at Lederne — presented with Rune.",
+      "links": [],
+      "image": "assets/talks/v2.jpg",
+      "alt": "On stage at the Version2 Analytics conference"
+    },
+    {
+      "id": "snowflake-virtual-user-group-dk-2022",
+      "status": "held",
+      "badge": "Talk",
+      "when": "Jan 2022",
+      "title_html": "Snowflake Virtual User Group Denmark",
+      "meta_html": "Lederne's Snowflake journey and data architecture — presented with Danny Mawani Holmgaard; SimCorp on the same session.",
+      "links": [
+        {
+          "label": "Event",
+          "url": "https://usergroups.snowflake.com/events/details/snowflake-denmark-presents-virtual-user-group-2022-denmark/"
+        }
+      ],
+      "image": null,
+      "alt": ""
+    },
+    {
+      "id": "masitaly-2021",
+      "status": "held",
+      "badge": "Talk",
+      "when": "2021",
+      "title_html": "Data Science in Production",
+      "meta_html": "MASItaly21 conference · how Lederne runs data science in production — presented remotely with Danny Mawani Holmgaard.",
+      "links": [],
+      "image": "assets/talks/masi.jpg",
+      "alt": "Presenting remotely at MASItaly21"
+    }
+  ],
+  "jury": [
+    {
+      "year": "2026",
+      "detail": "Jury — Best Use of Data."
+    },
+    {
+      "year": "2025",
+      "detail": "Jury — Best Use of Data."
+    },
+    {
+      "year": "2024",
+      "detail": "Jury — Best Use of Content."
+    }
+  ]
+}

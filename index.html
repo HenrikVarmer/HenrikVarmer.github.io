@@ -6,291 +6,431 @@
   <title>Henrik Varmer — Head of Data &amp; AI</title>
   <meta name="description" content="Henrik Varmer — Senior Director, Head of Data & AI at VELUX. Data & AI leader, builder, and keynote speaker." />
   <meta name="author" content="Henrik Varmer" />
-
-  <!-- Open Graph -->
   <meta property="og:type" content="profile" />
   <meta property="og:title" content="Henrik Varmer — Head of Data & AI" />
   <meta property="og:description" content="Senior Director, Head of Data & AI at VELUX. Builder & keynote speaker on data & AI." />
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/40164071?v=4" />
   <meta property="og:url" content="https://henrikvarmer.github.io" />
   <meta name="twitter:card" content="summary" />
-
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◆</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --bg: #0a0e14;
-      --bg-soft: #0f141d;
-      --card: rgba(255, 255, 255, 0.035);
-      --border: rgba(255, 255, 255, 0.09);
-      --text: #e8ecf3;
-      --muted: #8b95a7;
-      --faint: #5c6577;
-      --accent: #5eead4;
-      --accent-2: #7dd3fc;
-      --glow: rgba(94, 234, 212, 0.14);
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--bg); color: var(--text); line-height: 1.6;
-      -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
-      min-height: 100vh; position: relative; overflow-x: hidden;
-    }
-    .aura {
-      position: fixed; inset: 0; z-index: 0; pointer-events: none;
-      background:
-        radial-gradient(600px circle at 15% 8%, rgba(94, 234, 212, 0.11), transparent 45%),
-        radial-gradient(700px circle at 85% 18%, rgba(125, 211, 252, 0.09), transparent 50%),
-        radial-gradient(900px circle at 50% 100%, rgba(94, 234, 212, 0.06), transparent 55%);
-    }
-    .grid-overlay {
-      position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.35;
-      background-image:
-        linear-gradient(var(--border) 1px, transparent 1px),
-        linear-gradient(90deg, var(--border) 1px, transparent 1px);
-      background-size: 64px 64px;
-      mask-image: radial-gradient(circle at 50% 25%, black, transparent 75%);
-      -webkit-mask-image: radial-gradient(circle at 50% 25%, black, transparent 75%);
-    }
-    .wrap {
-      position: relative; z-index: 1; max-width: 780px; margin: 0 auto;
-      padding: clamp(3.5rem, 11vh, 8rem) 1.5rem 4rem;
-    }
-
-    /* Hero — portrait to the LEFT of the name */
-    .hero { display: flex; flex-direction: column; align-items: stretch; }
-    /* avatar row + CTA buttons keep their natural width; everything else fills the column */
-    .identity, .actions { align-self: flex-start; }
-    .identity { display: flex; align-items: center; gap: 1.35rem; margin-bottom: 1.1rem; }
-    .avatar {
-      width: 104px; height: 104px; border-radius: 50%; object-fit: cover; flex: 0 0 auto;
-      border: 1px solid var(--border);
-      box-shadow: 0 0 0 4px rgba(94, 234, 212, 0.07), 0 18px 40px -12px rgba(0, 0, 0, 0.65);
-    }
-    .identity .who { display: flex; flex-direction: column; gap: 0.35rem; }
-    .eyebrow {
-      display: inline-flex; align-items: center; gap: 0.55rem; align-self: flex-start;
-      font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--accent); font-weight: 600;
-    }
-    .eyebrow .dot {
-      width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
-      box-shadow: 0 0 0 3px var(--glow); animation: pulse 2.6s ease-in-out infinite;
-    }
-    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.35;} }
-    h1 {
-      font-family: 'Fraunces', Georgia, serif; font-weight: 500;
-      font-size: clamp(2.3rem, 7vw, 3.6rem); line-height: 1.0; letter-spacing: -0.015em;
-    }
-    h1 .grad {
-      background: linear-gradient(120deg, var(--accent) 0%, var(--accent-2) 100%);
-      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-    }
-
-    .role { font-size: clamp(1.05rem, 2.6vw, 1.26rem); color: var(--text); font-weight: 500; margin-bottom: 0.35rem; }
-    .role b { color: var(--accent-2); font-weight: 600; }
-    .tagline { font-size: 1.05rem; color: var(--muted); margin-bottom: 1.5rem; }
-    .tagline b { color: var(--text); font-weight: 600; }
-
-    /* Primary actions */
-    .actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 2.2rem; }
-    .cta {
-      display: inline-flex; align-items: center; gap: 0.55rem;
-      font-size: 0.95rem; font-weight: 600; text-decoration: none;
-      padding: 0.8rem 1.25rem; border-radius: 12px;
-      transition: transform 0.2s, box-shadow 0.25s, background 0.25s, border-color 0.25s;
-    }
-    .cta.primary {
-      color: #04211d; background: linear-gradient(120deg, var(--accent), var(--accent-2));
-      box-shadow: 0 10px 26px -10px rgba(94, 234, 212, 0.55);
-    }
-    .cta.primary:hover { transform: translateY(-2px); box-shadow: 0 16px 34px -12px rgba(94, 234, 212, 0.7); }
-    .cta.ghost { color: var(--text); border: 1px solid var(--border); background: var(--card); }
-    .cta.ghost:hover { transform: translateY(-2px); border-color: rgba(94,234,212,0.4); color: var(--accent); }
-    .cta svg { width: 17px; height: 17px; stroke: currentColor; fill: none; stroke-width: 1.9; }
-
-    .focus { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.55rem; margin: 0 0 1.4rem; }
-    .tag {
-      font-size: 0.83rem; font-weight: 500; color: var(--text);
-      padding: 0.5rem 0.95rem; border: 1px solid var(--border); border-radius: 999px;
-      background: var(--card); backdrop-filter: blur(6px);
-      transition: border-color 0.25s, color 0.25s, transform 0.25s;
-    }
-    .tag:hover { border-color: rgba(94,234,212,0.4); color: var(--accent); transform: translateY(-1px); }
-    /* tags distribute across the full row only when they fit on one line (desktop) */
-    @media (max-width: 780px) { .focus { justify-content: flex-start; } }
-
-    .rule { height: 1px; background: linear-gradient(90deg, var(--border), transparent); margin: 0 0 2.4rem; }
-
-    /* Speaking */
-    .section-label { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--faint); font-weight: 600; margin-bottom: 1.3rem; }
-    /* heading + kicker share one line on desktop; the label stacks under the heading on mobile */
-    .section-title { display: flex; align-items: baseline; gap: 0.7rem; margin-bottom: 1.3rem; }
-    .section-title .work-head, .section-title .section-label { margin-bottom: 0; }
-    @media (max-width: 700px) { .section-title { flex-direction: column; align-items: stretch; gap: 0.3rem; } }
-    .speaking {
-      display: grid; grid-template-columns: 1fr auto; gap: 1.5rem; align-items: center;
-      border: 1px solid var(--border); border-radius: 18px; padding: 1.5rem 1.6rem;
-      background: linear-gradient(135deg, rgba(94,234,212,0.06), var(--card)); margin-bottom: 3rem;
-    }
-    .speaking p { color: var(--muted); font-size: 0.98rem; max-width: 46ch; }
-    .speaking .topics { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.9rem; }
-    .speaking .topics span { font-size: 0.76rem; color: var(--faint); border: 1px solid var(--border); border-radius: 999px; padding: 0.3rem 0.7rem; }
-    @media (max-width: 620px) { .speaking { grid-template-columns: 1fr; } }
-
-    /* Open-source work */
-    .work-head { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 1.5rem; letter-spacing: -0.01em; margin-bottom: 0.3rem; }
-    .worklist { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 3rem; }
-    .repo {
-      display: flex; flex-direction: column; gap: 0.4rem; text-decoration: none; color: var(--text);
-      border: 1px solid var(--border); border-radius: 14px; padding: 1.05rem 1.15rem; background: var(--card);
-      transition: border-color 0.25s, transform 0.2s, background 0.25s;
-    }
-    .repo:hover { border-color: rgba(94,234,212,0.4); transform: translateY(-2px); background: rgba(94,234,212,0.04); }
-    .repo .rtop { display: flex; align-items: center; gap: 0.5rem; }
-    .repo h3 { font-size: 1.02rem; font-weight: 600; letter-spacing: -0.01em; }
-    .repo .lang { margin-left: auto; font-size: 0.72rem; color: var(--faint); display: inline-flex; align-items: center; gap: 0.4rem; white-space: nowrap; }
-    .repo .lang i { width: 8px; height: 8px; border-radius: 50%; }
-    .i-py { background: #7dd3fc; } .i-r { background: #5eead4; } .i-ai { background: #c4b5fd; }
-    .repo p { font-size: 0.86rem; color: var(--muted); }
-    .repo.feat { grid-column: span 2; background: linear-gradient(135deg, rgba(94,234,212,0.07), var(--card)); }
-    @media (max-width: 620px) { .worklist { grid-template-columns: 1fr; } .repo.feat { grid-column: span 1; } }
-
-    .about-label { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--faint); font-weight: 600; margin-bottom: 0.9rem; }
-    .about { font-size: 1.05rem; color: var(--muted); max-width: 58ch; margin-bottom: 3rem; }
-    .about b { color: var(--text); font-weight: 500; }
-
-    .links { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-    .link {
-      flex: 1 1 0; min-width: 150px; display: flex; align-items: center; gap: 0.7rem;
-      padding: 0.95rem 1.1rem; border: 1px solid var(--border); border-radius: 14px;
-      background: var(--card); color: var(--text); text-decoration: none;
-      font-size: 0.94rem; font-weight: 500; transition: border-color 0.25s, background 0.25s, transform 0.2s;
-    }
-    .link:hover { border-color: rgba(94,234,212,0.35); background: rgba(94, 234, 212, 0.05); transform: translateY(-2px); }
-    .link svg { width: 19px; height: 19px; flex-shrink: 0; stroke: var(--accent); fill: none; }
-    .link .lbl { display: flex; flex-direction: column; line-height: 1.25; }
-    .link .lbl small { color: var(--faint); font-size: 0.74rem; font-weight: 400; }
-
-    footer { margin-top: 3.5rem; font-size: 0.82rem; color: var(--faint); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
-    footer a { color: var(--muted); text-decoration: none; }
-    footer a:hover { color: var(--accent); }
-
-    @media (max-width: 520px) {
-      .wrap { padding-top: 2.8rem; }
-      .avatar { width: 84px; height: 84px; }
-      .identity { gap: 1rem; }
-    }
-    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
-  </style>
+  :root {
+    color-scheme: light;
+    --pad: clamp(1.3rem, 4.5vw, 2rem);
+    --bg: #FBFBFC; --surface: #ECEDEF; --surface-2: #FFFFFF;
+    --text: #2A2B26; --muted: #6D6E66; --faint: #999A92;
+    --hairline: rgba(42, 43, 38, 0.15);
+    --acc: #2A2B26; --acc-2: #3B3C36; --acc-ink: #DD700B;
+    --acc-border: rgba(221, 112, 11, 0.5); --acc-wash: rgba(221, 112, 11, 0.13); --acc-rgb: 221, 112, 11;
+    --str: #7C7D75; --str-wash: rgba(124, 125, 117, 0.07);
+    --mark: #B09A2E; --mark-border: rgba(176, 154, 46, 0.55); --mark-wash: rgba(176, 154, 46, 0.14);
+    --chart-rgb: 124, 125, 117; --dot-rgb: 221, 112, 11; --grid-rgb: 42, 43, 38;
+    --close-bg: #3B3C36; --close-text: #ECEDEF; --close-muted: #9CA6AD;
+    --close-hairline: rgba(236, 237, 239, 0.16); --close-cell: rgba(255, 255, 255, 0.045);
+    --mono: ui-monospace, 'SF Mono', 'Cascadia Code', Menlo, Consolas, monospace;
+  }
+  * { margin: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: 'Fraunces', Georgia, serif; font-optical-sizing: auto;
+    line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  ::selection { background: var(--acc-ink); color: #FFFFFF; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--acc); outline-offset: 3px; }
+  .shell { max-width: 1120px; margin: 0 auto; padding: 0 var(--pad); }
+  .top {
+    display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+    padding: 1.5rem 0 1.1rem;
+    font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--faint);
+  }
+  .top .name { color: var(--muted); }
+  .band { padding: 2.6rem 0 2.9rem; }
+  .band.hero { padding-top: 0.8rem; padding-bottom: 2.2rem; }
+  .band.alt { background: var(--surface); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+  .band.close { background: var(--close-bg); color: var(--close-text); padding-bottom: 2.2rem; }
+  .shead { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.6rem; }
+  .shead .idx {
+    font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.16em; font-weight: 700;
+    color: var(--acc-ink); background: var(--acc); border-radius: 3px; padding: 0.3rem 0.55rem;
+  }
+  .shead h2 { font-size: clamp(1.7rem, 3.4vw, 2.3rem); font-weight: 420; letter-spacing: -0.015em; line-height: 1; }
+  .shead::after { content: ''; flex: 1; height: 2px; background: linear-gradient(90deg, var(--acc-border), var(--hairline) 60%); }
+  .close .shead::after { background: var(--close-hairline); }
+  .close .shead h2 { color: var(--close-text); }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.9rem; }
+  .cell {
+    background: var(--surface-2); border: 1px solid var(--hairline); border-radius: 6px;
+    padding: 1.25rem 1.35rem; text-decoration: none; color: var(--text);
+    display: flex; flex-direction: column; gap: 0.55rem; min-width: 0;
+    transition: border-color 0.25s ease, background 0.25s ease, transform 0.2s ease;
+  }
+  a.cell:hover, button.cell:hover { border-color: var(--acc-border); background: var(--acc-wash); transform: translateY(-3px); }
+  .w2 { grid-column: span 2; } .w3 { grid-column: span 3; }
+  .id-tile h1 { font-size: clamp(2.4rem, 5.5vw, 3.8rem); font-weight: 310; line-height: 1; letter-spacing: -0.02em; }
+  .id-tile h1 em { font-style: italic; font-weight: 360; color: var(--acc-ink); }
+  .eyebrow { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--str); }
+  .bio { color: var(--muted); font-size: 1rem; max-width: 56ch; }
+  .bio b { color: var(--text); font-weight: 480; }
+  .actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: auto; padding-top: 0.5rem; }
+  .btn {
+    font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none; padding: 0.75rem 1.2rem; border-radius: 3px;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  }
+  .btn.fill { background: var(--acc); color: var(--acc-ink); font-weight: 700; }
+  .btn.fill:hover { background: var(--acc-2); }
+  .btn.ghost { color: var(--text); border: 1px solid var(--hairline); }
+  .btn.ghost:hover { border-color: var(--acc); color: var(--acc); }
+  .portrait-tile { padding: 0; overflow: hidden; }
+  .portrait-tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .chart-tile { padding: 0.9rem 1.1rem 0.4rem; border-color: var(--str-wash); background: linear-gradient(180deg, var(--str-wash), var(--surface-2) 70%); }
+  #sky { display: block; width: 100%; height: clamp(90px, 12vh, 130px); pointer-events: none; }
+  .chiprow { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+  .chip {
+    font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--mark); border: 1px solid var(--mark-border); border-radius: 2px; padding: 0.14rem 0.45rem;
+    background: var(--mark-wash);
+  }
+  .chip.up { color: var(--acc-ink); border-color: var(--acc); background: var(--acc); font-weight: 700; }
+  .chiprow .when { font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--str); }
+  .cell h3 { font-size: 1.18rem; font-weight: 400; letter-spacing: -0.005em; }
+  .cell h3 em { font-style: italic; color: var(--str); }
+  .cell .meta { font-size: 0.88rem; color: var(--muted); }
+  .tlinks { display: flex; flex-wrap: wrap; gap: 1.1rem; margin-top: auto; padding-top: 0.35rem; }
+  .tlinks a {
+    font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--text); text-decoration: none; border-bottom: 1px solid var(--acc-border);
+    transition: color 0.2s ease;
+  }
+  .tlinks a:hover { color: var(--acc-ink); }
+  .talk-tile .shot {
+    width: calc(100% + 2.7rem); margin: -1.25rem -1.35rem 0.4rem; align-self: stretch;
+    max-width: none; aspect-ratio: 5 / 3; object-fit: cover;
+    border-bottom: 1px solid var(--hairline); border-radius: 6px 6px 0 0;
+    transition: box-shadow 0.35s ease;
+  }
+  .talk-tile:hover .shot { box-shadow: 0 0 0 1px var(--acc-border), 0 6px 30px rgba(var(--acc-rgb), 0.38); }
+  .featured {
+    background: linear-gradient(120deg, var(--acc-wash), var(--surface-2) 60%);
+    border-color: var(--acc-border);
+    flex-direction: row; gap: 1.4rem; align-items: center;
+  }
+  .featured .fbody { display: flex; flex-direction: column; gap: 0.55rem; min-width: 0; }
+  .featured h3 { font-size: clamp(1.3rem, 2.6vw, 1.65rem); }
+  .featured .poster {
+    width: clamp(120px, 13vw, 170px); border-radius: 4px; border: 1px solid var(--hairline); flex: 0 0 auto;
+    transition: box-shadow 0.35s ease;
+  }
+  .featured:hover .poster { box-shadow: 0 0 0 1px var(--acc-border), 0 6px 30px rgba(var(--acc-rgb), 0.38); }
+  .cta-tile { align-items: center; justify-content: center; text-align: center; gap: 0.8rem; }
+  .cta-tile p { font-style: italic; color: var(--muted); font-size: 0.95rem; }
+  #moreTalks { display: contents; }
+  #moreTalks[hidden] { display: none; }
+  #talksBtn {
+    grid-column: span 3; cursor: pointer; appearance: none;
+    align-items: center; justify-content: center;
+    font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--text); padding: 1.05rem;
+  }
+  #talksBtn:hover { color: var(--acc-ink); }
+  .out-tile { flex-direction: row; align-items: baseline; gap: 0.6rem; }
+  .out-tile small { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em; color: var(--close-muted); }
+  .close .cell { background: var(--close-cell); border-color: var(--close-hairline); color: var(--close-text); }
+  .close a.cell:hover { border-color: var(--acc-ink); background: rgba(var(--acc-rgb), 0.14); }
+  footer {
+    margin-top: 2.2rem; text-align: center;
+    font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--close-muted);
+  }
+  @media (max-width: 860px) {
+    .grid { grid-template-columns: 1fr 1fr; }
+    .w2, .w3, #talksBtn { grid-column: span 2; }
+    .featured { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 620px) {
+    .grid { grid-template-columns: 1fr; }
+    .w2, .w3, #talksBtn { grid-column: span 1; }
+    .portrait-tile { min-height: 260px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+</style>
 </head>
 <body>
-  <div class="aura"></div>
-  <div class="grid-overlay"></div>
+<div class="shell">
+  <div class="top">
+    <span class="name">Henrik Varmer</span>
+    <span>Data &amp; AI — Copenhagen</span>
+  </div>
+</div>
 
-  <main class="wrap">
-    <section class="hero">
-      <!-- portrait LEFT of the name -->
-      <div class="identity">
-        <img class="avatar" src="https://avatars.githubusercontent.com/u/40164071?v=4" alt="Henrik Varmer" />
-        <div class="who">
-          <span class="eyebrow"><span class="dot"></span> Data &amp; AI · Speaker</span>
-          <h1>Henrik <span class="grad">Varmer</span></h1>
+<section class="band hero">
+  <div class="shell">
+    <div class="grid">
+      <section class="cell w2 id-tile">
+        <p class="eyebrow">Senior Director · Head of Data &amp; AI, VELUX</p>
+        <h1>Henrik <em>Varmer</em></h1>
+        <p class="bio">I lead <b>Data &amp; AI at VELUX</b> — democratizing enterprise data on scalable, governed platforms, and helping domains ship trusted data products and GenAI close to the business.</p>
+        <div class="actions">
+          <a class="btn fill" href="mailto:henrik@varmer.dk?subject=Speaking%20enquiry">Book me for a talk</a>
+          <a class="btn ghost" href="https://github.com/HenrikVarmer">View the work</a>
         </div>
+      </section>
+      <div class="cell portrait-tile"><img src="https://avatars.githubusercontent.com/u/40164071?v=4" alt="Henrik Varmer" /></div>
+      <div class="cell w3 chart-tile"><canvas id="sky" aria-hidden="true"></canvas></div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt">
+  <div class="shell">
+    <div class="shead"><span class="idx">01</span><h2>Speaking</h2></div>
+    <div class="grid">
+      <article class="cell w2 featured" id="featured"></article>
+      <div class="cell cta-tile">
+        <p>Keynotes, talks and panels — data &amp; AI in plain language, pitched for the room.</p>
+        <a class="btn fill" href="mailto:henrik@varmer.dk?subject=Speaking%20enquiry">Book a talk</a>
       </div>
+      <div id="recentTalks" style="display: contents;"></div>
+      <div id="moreTalks" hidden></div>
+      <button id="talksBtn" type="button" class="cell" aria-expanded="false">Show all appearances ▾</button>
+    </div>
+  </div>
+</section>
 
-      <div class="focus">
-        <span class="tag">Data Strategy &amp; Leadership</span>
-        <span class="tag">Data Mesh</span>
-        <span class="tag">Snowflake + dbt</span>
-        <span class="tag">AI &amp; GenAI Platforms</span>
-      </div>
+<section class="band">
+  <div class="shell">
+    <div class="shead"><span class="idx">02</span><h2>Jury duty</h2></div>
+    <div class="grid" id="juryGrid"></div>
+  </div>
+</section>
 
-      <p class="role">Senior Director · <b>Head of Data &amp; AI</b> at VELUX</p>
-      <p class="tagline">I lead <b>Data &amp; AI at VELUX</b> — democratizing access to enterprise data and simplifying how it's used on scalable, governed platforms. My focus: empowering domains to ship trusted data products and GenAI where decisions are made, close to the business.</p>
+<section class="band alt">
+  <div class="shell">
+    <div class="shead"><span class="idx">03</span><h2>Open source</h2></div>
+    <div class="grid">
+      <a class="cell repo w2" href="https://github.com/HenrikVarmer/textrec">
+        <p class="chiprow"><span class="chip">Python</span></p>
+        <h3>textrec</h3><p class="meta">Recommends documents that are relevant but genuinely new — LDA topics plus Jensen–Shannon divergence, with a k-nearest-neighbour cold-start engine.</p>
+      </a>
+      <a class="cell repo" href="https://github.com/HenrikVarmer/arulerec">
+        <p class="chiprow"><span class="chip">Python</span></p>
+        <h3>arulerec</h3><p class="meta">Cross-sell recommendations from mined association rules — pure-Python Apriori, ranked by lift.</p>
+      </a>
+      <a class="cell repo" href="https://github.com/HenrikVarmer/leadsearch">
+        <p class="chiprow"><span class="chip">Python</span></p>
+        <h3>leadsearch</h3><p class="meta">Turns names &amp; emails into job titles, workplaces &amp; LinkedIn profiles — with result scoring.</p>
+      </a>
+      <a class="cell repo" href="/volva/">
+        <p class="chiprow"><span class="chip up">Live</span></p>
+        <h3>volva</h3><p class="meta">Drop any date/value CSV and forecast it in the browser — trend, seasonality, uncertainty band.</p>
+      </a>
+      <a class="cell repo" href="https://github.com/HenrikVarmer">
+        <p class="chiprow"><span class="chip">GitHub</span></p>
+        <h3>All repositories</h3><p class="meta">The rest of the work, R originals included — @HenrikVarmer.</p>
+      </a>
+    </div>
+  </div>
+</section>
 
-      <div class="actions">
-        <a class="cta primary" href="mailto:henrik@varmer.dk?subject=Speaking%20enquiry">
-          <svg viewBox="0 0 24 24"><path d="M3 5h18v11H8l-4 4V5z"/></svg>
-          Book me for a talk
-        </a>
-        <a class="cta ghost" href="https://github.com/HenrikVarmer" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><path d="M9 19c-4 1.5-4-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 00-1.3-3.2 4.3 4.3 0 00-.1-3.2s-1-.3-3.4 1.3a11.5 11.5 0 00-6 0C6.3 2.3 5.3 2.6 5.3 2.6a4.3 4.3 0 00-.1 3.2A4.6 4.6 0 003.9 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
-          View the work
-        </a>
-      </div>
+<section class="band close">
+  <div class="shell">
+    <div class="shead"><span class="idx">04</span><h2>Contact</h2></div>
+    <div class="grid">
+      <a class="cell out-tile" href="https://www.linkedin.com/in/varmer">LinkedIn <small>/in/varmer</small></a>
+      <a class="cell out-tile" href="https://github.com/HenrikVarmer">GitHub <small>@HenrikVarmer</small></a>
+      <a class="cell out-tile" href="mailto:henrik@varmer.dk">Email <small>henrik@varmer.dk</small></a>
+    </div>
+    <footer>© <span id="yr">2026</span> Henrik Varmer · Data &amp; AI · Copenhagen</footer>
+  </div>
+</section>
 
-      <div class="rule"></div>
+<script>
 
-      <!-- Open-source work -->
-      <div class="section-title">
-        <h2 class="work-head">Built in the open</h2>
-        <p class="section-label">Open Source</p>
-      </div>
-      <div class="worklist">
-        <a class="repo feat" href="https://github.com/HenrikVarmer/textrec" target="_blank" rel="noopener">
-          <div class="rtop"><h3>textrec</h3><span class="lang"><i class="i-py"></i>Python</span></div>
-          <p>Recommends documents that are relevant but genuinely new — an LDA topic model plus Jensen–Shannon divergence, with a k-nearest-neighbour cold-start engine. <span style="color:var(--faint)">R version: textRec-R.</span></p>
-        </a>
-        <a class="repo" href="https://github.com/HenrikVarmer/arulerec" target="_blank" rel="noopener">
-          <div class="rtop"><h3>arulerec</h3><span class="lang"><i class="i-py"></i>Python</span></div>
-          <p>Cross-sell recommendations from mined association rules — pure-Python Apriori, ranked by lift.</p>
-        </a>
-        <a class="repo" href="https://github.com/HenrikVarmer/leadsearch" target="_blank" rel="noopener">
-          <div class="rtop"><h3>leadsearch</h3><span class="lang"><i class="i-py"></i>Python</span></div>
-          <p>Turns names &amp; emails into job titles, workplaces &amp; LinkedIn profiles — with email intelligence and result scoring.</p>
-        </a>
-        <a class="repo" href="/volva/">
-          <div class="rtop"><h3>volva</h3><span class="lang"><i class="i-py"></i>Live tool</span></div>
-          <p>Drop any date/value CSV and forecast it right in your browser — trend, seasonality and an uncertainty band. Try it →</p>
-        </a>
-        <a class="repo" href="https://github.com/HenrikVarmer/GeoSpatialCopenhagen" target="_blank" rel="noopener">
-          <div class="rtop"><h3>GeoSpatialCopenhagen</h3><span class="lang"><i class="i-r"></i>R</span></div>
-          <p>Copenhagen mapped in 3D from open geodata.</p>
-        </a>
-      </div>
+(async () => {
+  let data;
+  try { data = await (await fetch('talks.json')).json(); } catch (e) { return; }
+  const esc = s => s || '';
+  const chiprow = t => `<p class="chiprow"><span class="chip${t.status === 'upcoming' ? ' up' : ''}">${t.badge}</span><span class="when">${t.when}</span></p>`;
+  const linkrow = t => t.links.length ? `<div class="tlinks">${t.links.map(l => `<a href="${l.url}">${l.label} ↗</a>`).join('')}</div>` : '';
+  const tile = t => `<article class="cell talk-tile">${t.image ? `<img class="shot" src="${t.image}" alt="${esc(t.alt)}" loading="lazy" />` : ''}
+    ${chiprow(t)}<h3>${t.title_html}</h3><p class="meta">${t.meta_html}</p>${linkrow(t)}</article>`;
 
-      <!-- Speaking -->
-      <div class="section-title">
-        <h2 class="work-head">On stage: data &amp; AI, in plain language</h2>
-        <p class="section-label">Speaking</p>
-      </div>
-      <div class="speaking">
-        <div>
-          <p>Keynotes, talks and panels for teams, leaders and conferences — from recommender systems to what
-            "AI strategy" really means once you open the terminal. Practical, honest, pitched for the room.</p>
-          <div class="topics"><span>Data &amp; AI strategy</span><span>Building data teams</span><span>Applied ML &amp; GenAI</span></div>
-        </div>
-        <a class="cta primary" href="mailto:henrik@varmer.dk?subject=Speaking%20enquiry">Book a talk</a>
-      </div>
+  const up = data.talks.find(t => t.status === 'upcoming');
+  const held = data.talks.filter(t => t.status !== 'upcoming');
+  const feat = document.getElementById('featured');
+  if (up) {
+    feat.innerHTML = `<div class="fbody">${chiprow(up)}<h3>${up.title_html}</h3><p class="meta">${up.meta_html}</p>${linkrow(up)}</div>` +
+      (up.image ? `<img class="poster" src="${up.image}" alt="${esc(up.alt)}" />` : '');
+  } else {
+    feat.innerHTML = `<div class="fbody"><p class="chiprow"><span class="chip">Next</span></p><h3>Nothing announced right now</h3><p class="meta">New talks appear here as they are confirmed.</p></div>`;
+  }
+  document.getElementById('recentTalks').innerHTML = held.slice(0, 4).map(tile).join('');
+  document.getElementById('moreTalks').innerHTML = held.slice(4).map(tile).join('');
+  document.getElementById('juryGrid').innerHTML = data.jury.map(j =>
+    `<div class="cell jury-tile"><p class="chiprow"><span class="chip">${j.year}</span></p><h3>Danish Digital Award</h3><p class="meta">${j.detail}</p></div>`).join('');
 
-      <nav class="links" aria-label="Contact">
-        <a class="link" href="https://www.linkedin.com/in/varmer" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 014 0v4"/></svg>
-          <span class="lbl">LinkedIn<small>/in/varmer</small></span>
-        </a>
-        <a class="link" href="https://github.com/HenrikVarmer" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M9 19c-4 1.5-4-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 00-1.3-3.2 4.3 4.3 0 00-.1-3.2s-1-.3-3.4 1.3a11.5 11.5 0 00-6 0C6.3 2.3 5.3 2.6 5.3 2.6a4.3 4.3 0 00-.1 3.2A4.6 4.6 0 003.9 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
-          <span class="lbl">GitHub<small>@HenrikVarmer</small></span>
-        </a>
-        <a class="link" href="mailto:henrik@varmer.dk">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-          <span class="lbl">Email<small>henrik@varmer.dk</small></span>
-        </a>
-      </nav>
+  const more = document.getElementById('moreTalks');
+  const btn = document.getElementById('talksBtn');
+  const total = data.talks.length;
+  const closedLabel = 'Show all ' + total + ' appearances ▾';
+  btn.textContent = closedLabel;
+  if (!held.slice(4).length) btn.style.display = 'none';
+  btn.addEventListener('click', () => {
+    const isOpen = !more.hasAttribute('hidden');
+    if (isOpen) { more.setAttribute('hidden', ''); btn.textContent = closedLabel; btn.setAttribute('aria-expanded', 'false'); }
+    else { more.removeAttribute('hidden'); btn.textContent = 'Show fewer ▴'; btn.setAttribute('aria-expanded', 'true'); }
+  });
+})();
+document.getElementById('yr').textContent = new Date().getFullYear();
 
-      <footer>
-        <span>© <span id="yr">2026</span> Henrik Varmer</span>
-        <span>Data &amp; AI · Copenhagen</span>
-      </footer>
-    </section>
-  </main>
+(() => {
+  const cv = document.getElementById('sky');
+  const ctx = cv.getContext('2d');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let W, H, dpr, series, fc, t0, colors, lo, hi;
 
-  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+  const season = i => 0.095 * Math.sin(i / 6.5) + 0.045 * Math.sin(i / 2.3 + 1.7);
+  const N = 90, M = 34;
+
+  function makeData() {
+    const pts = [];
+    let level = 0.55;
+    for (let i = 0; i < N; i++) {
+      level += (Math.random() - 0.5) * 0.02;
+      level = Math.max(0.3, Math.min(0.8, level));
+      pts.push(level + 0.0016 * i + season(i));
+    }
+    series = pts;
+    // forecast: continue trend + seasonality from the last point, with a light wobble walk
+    const lastV = pts[N - 1];
+    const base = lastV - season(N - 1);
+    fc = [lastV];
+    let w = 0;
+    for (let j = 1; j <= M; j++) {
+      w += (Math.random() - 0.5) * 0.016;
+      fc.push(base + season(N - 1 + j) + 0.0016 * j + w * 0.9);
+    }
+    // y-scale hugs the data (including the widest band spread) so the canvas has no dead space
+    lo = Math.min(...series, ...fc.map((v, j) => v - 0.16 * (j / M))) - 0.02;
+    hi = Math.max(...series, ...fc.map((v, j) => v + 0.16 * (j / M))) + 0.02;
+  }
+
+  function readColors() {
+    const cs = getComputedStyle(document.documentElement);
+    colors = {
+      line: cs.getPropertyValue('--chart-rgb').trim(),
+      dot: cs.getPropertyValue('--dot-rgb').trim(),
+      grid: cs.getPropertyValue('--grid-rgb').trim(),
+    };
+  }
+  window.__refreshChartColors = readColors;
+
+  function resize() {
+    dpr = Math.min(devicePixelRatio || 1, 2);
+    W = cv.clientWidth; H = cv.clientHeight;
+    cv.width = W * dpr; cv.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function draw(p) {
+    ctx.clearRect(0, 0, W, H);
+    const splitX = 0.62;
+    const px = i => (i / (N - 1)) * W * splitX;
+    const fx = j => W * splitX + (j / M) * W * (1 - splitX);
+    const py = v => H * (0.96 - ((v - lo) / (hi - lo)) * 0.92);
+
+    ctx.strokeStyle = 'rgba(' + colors.grid + ', 0.06)';
+    ctx.lineWidth = 1;
+    for (let g = 1; g < 4; g++) {
+      const y = (H / 4) * g;
+      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+    }
+
+    const histP = Math.min(1, p / 0.55);
+    const upto = Math.max(2, Math.floor(N * histP));
+    ctx.beginPath();
+    for (let i = 0; i < upto; i++) i ? ctx.lineTo(px(i), py(series[i])) : ctx.moveTo(px(0), py(series[0]));
+    ctx.strokeStyle = 'rgba(' + colors.line + ', 0.75)';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    if (p > 0.55) {
+      const fp = Math.min(1, (p - 0.55) / 0.45);
+      const upFc = Math.max(2, Math.floor(M * fp));
+      const x0 = W * splitX;
+
+      // uncertainty band around the wobbly median
+      const grad = ctx.createLinearGradient(x0, 0, fx(upFc), 0);
+      grad.addColorStop(0, 'rgba(' + colors.line + ', 0.18)');
+      grad.addColorStop(1, 'rgba(' + colors.dot + ', 0.03)');
+      ctx.beginPath();
+      ctx.moveTo(x0, py(fc[0]));
+      for (let j = 0; j <= upFc; j++) {
+        const spread = 0.16 * (j / M) * fp;
+        ctx.lineTo(fx(j), py(fc[j] + spread));
+      }
+      for (let j = upFc; j >= 0; j--) {
+        const spread = 0.16 * (j / M) * fp;
+        ctx.lineTo(fx(j), py(fc[j] - spread));
+      }
+      ctx.closePath();
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      // wobbly median, dashed
+      ctx.beginPath();
+      ctx.setLineDash([2, 5]);
+      for (let j = 0; j <= upFc; j++) j ? ctx.lineTo(fx(j), py(fc[j])) : ctx.moveTo(x0, py(fc[0]));
+      ctx.strokeStyle = 'rgba(' + colors.line + ', 0.6)';
+      ctx.lineWidth = 1.2;
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // "now" divider
+      ctx.beginPath();
+      ctx.setLineDash([1, 4]);
+      ctx.moveTo(x0, H * 0.06);
+      ctx.lineTo(x0, H * 0.97);
+      ctx.strokeStyle = 'rgba(' + colors.grid + ', 0.18)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      const dot = px(N - 1);
+      const glow = 0.5 + 0.5 * Math.sin((performance.now() - t0) / 700);
+      ctx.beginPath();
+      ctx.arc(dot, py(series[N - 1]), 3, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(' + colors.dot + ', ' + (0.7 + glow * 0.3) + ')';
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(dot, py(series[N - 1]), 8 + glow * 3, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(' + colors.dot + ', ' + (0.12 + glow * 0.1) + ')';
+      ctx.stroke();
+    }
+  }
+
+  function frame(now) {
+    if (!t0) t0 = now;
+    const p = reduced ? 1 : Math.min(1, (now - t0) / 2400);
+    const ease = 1 - Math.pow(1 - p, 3);
+    draw(ease);
+    if (p < 1 || !reduced) requestAnimationFrame(frame);
+  }
+
+  makeData();
+  readColors();
+  resize();
+  addEventListener('resize', resize);
+  if (reduced) { t0 = performance.now(); draw(1); }
+  else requestAnimationFrame(frame);
+})();
+</script>
 </body>
 </html>
