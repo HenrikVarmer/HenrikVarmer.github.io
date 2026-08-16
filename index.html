@@ -199,7 +199,7 @@
       </div>
       <div id="recentTalks" style="display: contents;"></div>
       <div id="moreTalks" hidden></div>
-      <button id="talksBtn" type="button" class="cell" aria-expanded="false">Show all appearances ▾</button>
+      <button id="talksBtn" type="button" class="cell" aria-expanded="false">Show all past talks ▾</button>
     </div>
   </div>
 </section>
@@ -271,17 +271,31 @@
   } else {
     feat.innerHTML = `<div class="fbody"><p class="chiprow"><span class="chip">Next</span></p><h3>Nothing announced right now</h3><p class="meta">New talks appear here as they are confirmed.</p></div>`;
   }
-  document.getElementById('recentTalks').innerHTML = held.slice(0, 4).map(tile).join('');
-  document.getElementById('moreTalks').innerHTML = held.slice(4).map(tile).join('');
+  const holder = document.createElement('div');
+  const tiles = held.map(t => { holder.innerHTML = tile(t); return holder.firstElementChild; });
   document.getElementById('juryGrid').innerHTML = data.jury.map(j =>
     `<div class="cell jury-tile"><p class="chiprow"><span class="chip">${j.year}</span></p><h3>Danish Digital Award</h3><p class="meta">${j.detail}</p></div>`).join('');
 
+  const recent = document.getElementById('recentTalks');
   const more = document.getElementById('moreTalks');
   const btn = document.getElementById('talksBtn');
-  const total = data.talks.length;
-  const closedLabel = 'Show all ' + total + ' appearances ▾';
+  const grid = recent.closest('.grid');
+  const closedLabel = 'Show all past talks ▾';
   btn.textContent = closedLabel;
-  if (!held.slice(4).length) btn.style.display = 'none';
+
+  // Visible tiles adapt to the column count so the collapsed section always
+  // closes at exactly two full rows: featured(2)+CTA(1) fill row one, talks
+  // fill row two. 3 cols -> 3 tiles, 2 cols -> 1, single column -> 2.
+  function layout() {
+    const cols = getComputedStyle(grid).gridTemplateColumns.split(' ').length;
+    const n = cols === 1 ? 2 : Math.max(2 * cols - 3, 1);
+    tiles.forEach((el, i) => (i < n ? recent : more).appendChild(el));
+    btn.style.display = tiles.length > n ? '' : 'none';
+  }
+  layout();
+  let rto;
+  addEventListener('resize', () => { clearTimeout(rto); rto = setTimeout(layout, 120); });
+
   btn.addEventListener('click', () => {
     const isOpen = !more.hasAttribute('hidden');
     if (isOpen) { more.setAttribute('hidden', ''); btn.textContent = closedLabel; btn.setAttribute('aria-expanded', 'false'); }
