@@ -360,7 +360,7 @@ document.getElementById('yr').textContent = new Date().getFullYear();
     const fx = j => W * splitX + (j / M) * W * (1 - splitX);
     const py = v => H * (0.96 - ((v - lo) / (hi - lo)) * 0.92);
 
-    ctx.strokeStyle = 'rgba(' + colors.grid + ', 0.06)';
+    ctx.strokeStyle = 'rgba(' + colors.grid + ', 0.14)';
     ctx.lineWidth = 1;
     for (let g = 1; g < 4; g++) {
       const y = (H / 4) * g;
