@@ -363,10 +363,13 @@ document.getElementById('yr').textContent = new Date().getFullYear();
     ctx.lineWidth = 1;
     for (let g = 1; g < 4; g++) {
       const y = (H / 4) * g;
-      ctx.strokeStyle = 'rgba(' + colors.grid + ', 0.14)';
-      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W * splitX, y); ctx.stroke();
-      ctx.strokeStyle = 'rgba(' + colors.grid + ', 0.05)';
-      ctx.beginPath(); ctx.moveTo(W * splitX, y); ctx.lineTo(W, y); ctx.stroke();
+      const gl = ctx.createLinearGradient(0, 0, W, 0);
+      gl.addColorStop(0, 'rgba(' + colors.grid + ', 0.14)');
+      gl.addColorStop(splitX, 'rgba(' + colors.grid + ', 0.14)');
+      gl.addColorStop(Math.min(splitX + 0.14, 1), 'rgba(' + colors.grid + ', 0.05)');
+      gl.addColorStop(1, 'rgba(' + colors.grid + ', 0.05)');
+      ctx.strokeStyle = gl;
+      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
     }
 
     const histP = Math.min(1, p / 0.55);
