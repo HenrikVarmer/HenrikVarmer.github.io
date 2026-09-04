@@ -2,16 +2,12 @@
   "talks": [
     {
       "id": "conversational-bi-inspari-2026",
-      "status": "upcoming",
-      "badge": "Upcoming",
-      "when": "Sep 2, 2026",
+      "status": "held",
+      "badge": "Talk",
+      "when": "Sep 2026",
       "title_html": "Conversational BI <em>i praksis</em> — anvend AI til at tale med dine data",
-      "meta_html": "Inspari morning briefing · Kgs. Lyngby · the VELUX customer case at 10:00 — Conversational BI from prototypes to production.",
+      "meta_html": "Inspari morning briefing · Kgs. Lyngby · the VELUX customer case — Conversational BI from prototypes to production.",
       "links": [
-        {
-          "label": "Sign up",
-          "url": "https://inspari.dk/conversational-bi-briefing#sign-up"
-        },
         {
           "label": "Event",
           "url": "https://inspari.dk/conversational-bi-briefing"
