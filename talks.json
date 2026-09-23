@@ -2,9 +2,9 @@
   "talks": [
     {
       "id": "bridging-the-gap-cncf-aarhus-2026",
-      "status": "upcoming",
+      "status": "held",
       "badge": "Talk",
-      "when": "22 Sep 2026",
+      "when": "Sep 2026",
       "title_html": "Conversational AI",
       "meta_html": "Bridging the Gap, Cloud Native Aarhus (CNCF) · VELUX Innovation House, Østbirk · presented with Kasper Christiansen — a full day on where OT and IT meet.",
       "links": [
